@@ -102,9 +102,11 @@
 				
 <?php print caNavLink($this->request, "<i class='fa fa-envelope'></i> Contact", '', '', 'Contact', 'form'); ?>
 <?php
-$vs_rep_id = $this->getVar('representation_id');
 $vs_obj_id = $t_object->getPrimaryKey();
-print '<span style="margin-left: 30px;"><a href="#" onclick="caMediaPanel.showPanel(\'/index.php/Detail/GetMediaOverlay/context/objects/id/'.$vs_obj_id.'/representation_id/'.$vs_rep_id.'/overlay/1\'); return false;" title="Zoom"><span class="glyphicon glyphicon-zoom-in"></span> '._t('Ver elemento completo').'</a></span>';
+$vs_rep_id = $t_representation ? $t_representation->getPrimaryKey() : '';
+if ($vs_rep_id) {
+    print '<span style="margin-left: 30px;"><a href="#" onclick="caMediaPanel.showPanel(\'/index.php/Detail/GetMediaOverlay/context/objects/id/'.$vs_obj_id.'/representation_id/'.$vs_rep_id.'/overlay/1\'); return false;" title="Zoom"><span class="glyphicon glyphicon-zoom-in"></span> '._t('Ver elemento completo').'</a></span>';
+}
 ?>
 				<div id="detailAnnotations"></div>
 				
