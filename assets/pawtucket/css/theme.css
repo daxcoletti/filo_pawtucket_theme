@@ -531,3 +531,14 @@ body.bg-edificio::before {
 	position: relative;
 	z-index: 1;
 }
+
+/* === CAROUSEL — fondo transparente en slides === */
+.frontSlide,
+.front .jcarousel li,
+.front .jcarousel li > div,
+.frontSlideMedia,
+.frontSlideMedia img,
+.jcarousel-skin-tango .jcarousel-item {
+	background-color: transparent !important;
+	background: transparent !important;
+}
