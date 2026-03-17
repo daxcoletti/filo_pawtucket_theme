@@ -1,6 +1,7 @@
 <?php
 /* ----------------------------------------------------------------------
- * views/pageFormat/pageFooter.php - Estilo FILO UBA (filo.uba.ar)
+ * Repositorio Digital — Facultad de Filosofía y Letras, UBA
+ * https://filo.uba.ar
  * ---------------------------------------------------------------------- */
 ?>
 		<div style="clear:both; height:1px;"><!-- empty --></div>
@@ -23,7 +24,7 @@
 					<!-- Logo y descripción -->
 					<div class="col-sm-4" style="margin-bottom:20px;">
 						<div style="margin-bottom:15px;">
-							<?php print caNavLink($this->request, caGetThemeGraphic($this->request, 'filo_logo.png'), "", "", "", ""); ?>
+							<?php print caNavLink($this->request, '<img src="/themes/filo/assets/pawtucket/graphics/filo_logo_footer.svg" style="height:55px; width:auto;" alt="FFyL UBA" />', "", "", "", ""); ?>
 						</div>
 						<p style="color:#8899bb; font-size:13px; line-height:1.7em;">
 							<?php print _t('Repositorio digital de la'); ?><br>
