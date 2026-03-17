@@ -1,0 +1,44 @@
+cat >> /mnt/user-data/outputs/home_bibsite.css << 'CSSEOF'
+
+/* =========================================================
+   BUSCADOR CENTRADO — caja contenedora + campo al 50%
+   ========================================================= */
+
+/* Sección completa: centra verticalmente con padding generoso */
+.home-search {
+    margin: 60px 0 !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+/* Caja contenedora grande que rodea el buscador */
+.home-search-box {
+    width: 100%;
+    max-width: 900px;
+    background-color: white;
+    border-radius: 12px;
+    padding: 50px 60px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* El form ocupa el 50% de la pantalla */
+.home-search form.bibtype.large {
+    width: 50vw !important;
+    min-width: 320px;
+    max-width: 700px;
+}
+
+/* El formOutline ocupa todo el form */
+.home-search .formOutline {
+    display: flex !important;
+    width: 100% !important;
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+CSSEOF
+echo "done"
