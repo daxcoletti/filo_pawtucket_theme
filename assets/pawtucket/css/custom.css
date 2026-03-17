@@ -1,0 +1,52 @@
+/* Footer Institucional Estilo Facultad */
+.footer-institucional {
+    background-color: #1a1a1a; /* Gris muy oscuro casi negro */
+    color: #ffffff;
+    padding: 60px 0 30px 0;
+    margin-top: 50px;
+    border-top: 5px solid #333;
+}
+
+.footer-col h4 {
+    color: #ffffff;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+    border-bottom: 2px solid #444;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.footer-col p, .footer-col ul li {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #ccc;
+}
+
+.footer-col a {
+    color: #aaa;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.footer-col a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+.footer-bottom-line hr {
+    border-top: 1px solid #333;
+    margin-top: 40px;
+}
+
+.footer-bottom-line p {
+    color: #666;
+    font-size: 0.85rem;
+}
+
+.footer-logo img {
+    max-width: 200px;
+    filter: brightness(0) invert(1); /* Hace que el logo sea blanco si es oscuro */
+    opacity: 0.8;
+}
