@@ -312,14 +312,6 @@ msgid "Created by"
 msgstr "Creado por"
 
 #: views/Classroom/set_detail_html.php:229
-msgid ""
-"Displaying %1 view because required data is not available to generate a %2 "
-"view"
-msgstr ""
-"Se muestra la vista %1 porque los datos para la vista %2 no están disponibles"
-
-#: views/Classroom/set_detail_html.php:311
-#: views/Lightbox/set_detail_html.php:294
 msgid "Click the %1 near items throughout the site to add items to this %2."
 msgstr ""
 "Haz clic en el %1 que se muestra junto a los elementos en el sitio para "
@@ -494,108 +486,10 @@ msgid "How to use the image viewer"
 msgstr "Cómo usar el visor de imágenes"
 
 #: views/Details/viewer_help_html.php:6
-msgid ""
-"Click and drag with the mouse to pan across the image. You can use the "
-"mousewheel or trackpad to zoom in or out of the image. \n"
-"\tThe <code>+</code> and <code>-</code> buttons and zoom slider bar at the "
-"top of viewer may also be used. The viewer displays the image at full "
-"resolution, loading \n"
-"\tdetail as you zoom. The more you zoom the more detail will be visible.\n"
-"\t"
-msgstr ""
-"Haga clic y arrastre con el ratón para desplazarse en la imagen. Puede usar "
-"la rueda del ratón o el trackpad para hacer zoom hacia dentro y hacia fuera "
-"de la imagen.\n"
-"\tTambién puede usar los botones <code>+</code> y <code>-</code> y la barra "
-"de zoom encima del visor. El visor muestra la imagen a toda resolución, "
-"cargando los detalles según hace zoom. Cuanto más zoom, más detalles serán "
-"visibles.\n"
-"\t"
-
-#: views/Details/viewer_help_html.php:12
-msgid ""
-"You may add text annotations to the image. Each annotation is associated "
-"with a point, rectangular or polygon area on the image. To create an "
-"annotation\n"
-"\tselect the point (line icon), rectangle or polygon tool from the tool bar, "
-"then click on the location you wish to annotate. "
-msgstr ""
-"Puede añadir anotaciones de texto a la imagen. Cada anotación está asociada "
-"con un punto, un rectángulo o un área poligonal de la imagen. Para crear una "
-"anotación, seleccione la herramienta de punto (icono de línea), rectángulo o "
-"polígono en la barra de herramientas, y luego haga clic en la posición donde "
-"desee hacer la anotación. "
-
-#: views/Details/viewer_help_html.php:16
-msgid ""
-"For point annotations a line will appear connecting the location with a text "
-"box. The location will also be highlighted with a red translucent circle. "
-"You may drag both the point of the line and the text box to adjust position."
-msgstr ""
-"Para anotaciones puntuales una línea va a aparecer conectando la posición "
-"del punto con una caja de texto. Ese punto estará también marcado por un "
-"círculo rojo translúcido. Puede arrastrar tanto el punto como la línea y la "
-"caja de texto para cambiar sus posiciones."
-
-#: views/Details/viewer_help_html.php:19
-msgid ""
-"For rectangular annotations a rectangle will appear with a text box below "
-"and adjacent. Drag on the edges at the highlighted locations to resize the "
-"rectangle. Drag the rectangle on its interior to reposition it."
-msgstr ""
-"Para anotaciones rectangulares, un rectángulo aparecerá con una caja de "
-"texto debajo y cerca. Arrastre los lados de la zona seleccionada para "
-"cambiar su tamaño. Arrastre el rectángulo desde su interior para "
-"reposicionarlo."
-
-#: views/Details/viewer_help_html.php:22
-msgid ""
-"For polygon annotations click \n"
-"\trepeatedly on the image to establish line segments at various locations "
-"for the polygon shape. The shape may have any number of points, and "
-"consequently sides. To complete the shape double-click\n"
-"\twhen placing the final point or click on the pan, rectangle or point "
-"tools. You can adjust the shape by clicking and dragging on any point. To "
-"move the shape, click and drag on the outline,\n"
-"\taway from any point. To remove a point click on it while holding down the "
-"option key. To add a point click on the outline, away from any point, while "
-"holding down the option key.\n"
-"\t"
-msgstr ""
-"Para anotaciones poligonales, haga clic repetidamente en la imagen para "
-"establecer los vértices de la forma poligonal. La forma puede tener el "
-"número de vértices (y por tanto de lados) que desee. Para completar la "
-"forma, haga doble-clic al colocar el vértice final.\n"
-"Puede alterar la forma haciendo clic y arrastrando cualquier punto.\n"
-"Para mover la forma, haga clic y arrastre en su contorno, lejos de cualquier "
-"vértice.\n"
-"Para quitar un vértice haga clic sobre él con la tecla 'Opción' pulsada.\n"
-"Para añadir un vértice haga clic en el perímetro, lejos de cualquier "
-"vértice, con la tecla 'Opción' pulsada.\n"
-"\t"
-
-#: views/Details/viewer_help_html.php:29
-msgid ""
-"You may also drag the text box into position. Click on the text box to add "
-"text. All changes to annotations are saved automatically as you work."
-msgstr ""
-"También puede arrastrar la caja de texto a la posición deseada. Haga clic en "
-"la caja de texto para añadir texto. Todos los cambios a las anotaciones se "
-"guardan automáticamente según va trabajando."
-
-#: views/Details/viewer_help_html.php:32
 msgid "Keyboard shortcuts"
 msgstr "Atajos de teclado"
 
 #: views/Details/viewer_help_html.php:35
-msgid ""
-"Single-key shortcuts are available for common actions. Pressing the key is "
-"equivalent to the corresponding mouse action."
-msgstr ""
-"Dispone de atajos de una sola tecla para las acciones más comunes. Apretar "
-"la tecla en cuestión es equivalente a la acción de ratón correspondiente."
-
-#: views/Details/viewer_help_html.php:38
 msgid "%1 to activate image panning"
 msgstr "%1 para activar el desplazamiento de imagen"
 
@@ -774,13 +668,6 @@ msgid "Remove comment"
 msgstr "Eliminar el comentario"
 
 #: views/Lightbox/set_detail_html.php:212
-msgid ""
-"Displaying %1 view because required data is not available to generate a %1 "
-"view"
-msgstr ""
-"Se muestra la vista %1 porque los datos para la vista %2 no están disponibles"
-
-#: views/Lightbox/set_detail_html.php:296
 msgid "There are no items in this %1"
 msgstr "No hay elementos en este %1"
 
@@ -899,13 +786,6 @@ msgid "Join group"
 msgstr "Participar en el grupo"
 
 #: views/LoginReg/form_profile_html.php:85
-msgid ""
-"If you have been provided with a group code enter it here to join the group."
-msgstr ""
-"Si me han enviado un código de grupo, lo utilizo aquí para incorporarme al "
-"grupo."
-
-#: views/LoginReg/form_profile_html.php:91
 msgid "Group memberships"
 msgstr "Participación en grupos"
 
@@ -928,14 +808,6 @@ msgid "Instructions have been sent to the e-mail address you provided."
 msgstr "Recibirá las instrucciones en el correo electrónico que ha indicado."
 
 #: views/LoginReg/form_reset_html.php:20
-msgid ""
-"You should receive the instructions within the hour. If you do not, contact "
-"us for assistance at "
-msgstr ""
-"Recibirá las instrucciones una hora aproximadamente. Si no fuera así "
-"contacte con nosotros mediante "
-
-#: views/LoginReg/form_reset_html.php:29
 msgid "Your password has been reset!"
 msgstr "¡Se ha restaurado su contraseña!"
 
@@ -948,14 +820,6 @@ msgid "login"
 msgstr "iniciar sesión"
 
 #: views/LoginReg/form_reset_html.php:40
-msgid ""
-"Please confirm you have copied the provided link properly.  If you continue "
-"to have difficulty, contact us for assistance,"
-msgstr ""
-"Por favor, confirme que ha copiado el enlace correctamente. Si continúa "
-"teniendo dificultades, contacte con nosotros,"
-
-#: views/LoginReg/form_reset_html.php:48
 msgid "Please enter your new password."
 msgstr "Por favor, introduzca su nueva contraseña."
 
@@ -968,16 +832,6 @@ msgid "Confirm new password"
 msgstr "Repetir la nueva contraseña"
 
 #: views/LoginReg/form_reset_html.php:78
-msgid ""
-"To reset your password enter the e-mail address you used to register below. "
-"A message will be sent to the address with instructions on how to reset your "
-"password."
-msgstr ""
-"Para restaurar la contraseña, indique el correo electrónico con el que se "
-"registró. Enviaremos instrucciones a dicha dirección con las instrucciones "
-"para hacerlo."
-
-#: views/LoginReg/form_reset_html.php:81
 msgid "E-mail"
 msgstr "Correo electrónico"
 
@@ -1100,13 +954,6 @@ msgid "Filter facet"
 msgstr "Faceta"
 
 #: views/pageFormat/browseMenuFacets.php:53
-msgid ""
-"Browse all %1 &nbsp;<span class=\"glyphicon glyphicon-arrow-right\"></span>"
-msgstr ""
-"Explorar todos los %1 &nbsp;<span class=\"glyphicon glyphicon-arrow-right"
-"\"></span>"
-
-#: views/pageFormat/browseMenuFacets.php:59
 msgid "No facets available"
 msgstr "No hay facetas disponibles"
 
@@ -1175,24 +1022,6 @@ msgid "Collections"
 msgstr "Colecciones"
 
 #: views/system/configuration_error_install_html.php:36
-msgid ""
-"<div class='error'>An error in your system configuration has been detected</"
-"div>\n"
-"\t    General installation instructions can be found\n"
-"\t    <a href='http://wiki.collectiveaccess.org/index.php?"
-"title=Installation_(Pawtucket)' target='_blank'>here</a>.\n"
-"\t    For more specific hints on the existing issues please have a look at "
-"the messages below."
-msgstr ""
-"<div class='error'>Se ha detectado un error en la configuración del sistema</"
-"div>\n"
-"\t    Puede encontrar las instrucciones para la instalación \n"
-"\t    <a href='http://wiki.collectiveaccess.org/index.php?"
-"title=Installation_(Pawtucket)' target='_blank'>aquí</a>.\n"
-"\t    Para buscar detalles más concretos sobre lo que ocurre, por favor, "
-"revise el mensaje que hay a continuación."
-
-#: conf/browse.conf:9
 msgid "object"
 msgstr "objeto"
 
@@ -1392,17 +1221,8 @@ msgstr "Explorá las palabras clave y términos de vocabulario asociados a los r
 msgid "Sort By"
 msgstr "Ordenar por"
 
-msgid "Sort by:"
-msgstr "Ordenar por:"
-
 msgid "Sort Order"
 msgstr "Orden"
-
-msgid "Ascending"
-msgstr "Ascendente"
-
-msgid "Descending"
-msgstr "Descendente"
 
 msgid "ascending"
 msgstr "ascendente"
@@ -1415,15 +1235,6 @@ msgstr "Búsquedas recientes"
 
 msgid "View"
 msgstr "Ver"
-
-msgid "Browse"
-msgstr "Navegar"
-
-msgid "Loading..."
-msgstr "Cargando..."
-
-msgid "Add selected results to %1"
-msgstr "Agregar selección a %1"
 
 msgid "Sort by"
 msgstr "Ordenar por"
@@ -1440,11 +1251,5 @@ msgstr "Fecha"
 msgid "Relevance"
 msgstr "Relevancia"
 
-msgid "Title"
-msgstr "Título"
-
 msgid "Identifier"
 msgstr "Identificador"
-
-msgid "Name"
-msgstr "Nombre"
