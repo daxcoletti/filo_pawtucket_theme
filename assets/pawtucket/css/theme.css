@@ -506,24 +506,31 @@ a.readmore-js-toggle { color: #2db5a3; padding-bottom: 15px; }
 	padding-bottom: 13px !important;
 }
 
-/* === FONDO ROTATIVO (con overlay blanco integrado) === */
-body.bg-bandera {
+/* === FONDO ROTATIVO — solo en página de inicio === */
+/* Las clases bg-bandera/bg-edificio se aplican al body pero
+   el fondo visible solo aparece en el #pageArea de inicio (.front) */
+body.bg-bandera #pageArea.front,
+body.bg-edificio #pageArea.front {
+	background-size: cover;
+	background-position: center top;
+	background-attachment: fixed;
+}
+body.bg-bandera #pageArea.front {
 	background-image:
 		linear-gradient(rgba(255,255,255,0.82), rgba(255,255,255,0.82)),
 		url('../graphics/bg_bandera.jpg');
-	background-size: cover;
-	background-position: center top;
-	background-attachment: fixed;
 }
-body.bg-edificio {
+body.bg-edificio #pageArea.front {
 	background-image:
 		linear-gradient(rgba(255,255,255,0.82), rgba(255,255,255,0.82)),
 		url('../graphics/bg_edificio.jpg');
-	background-size: cover;
-	background-position: center top;
-	background-attachment: fixed;
 }
-/* El footer tapa el fondo del body con su propio color sólido */
+/* Body siempre blanco — el fondo solo vive en #pageArea.front */
+body.bg-bandera,
+body.bg-edificio {
+	background: #ffffff;
+}
+/* Footer siempre con su color sólido */
 footer#footer {
 	background-color: #1a2035 !important;
 	background-image: none !important;
