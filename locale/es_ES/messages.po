@@ -1388,3 +1388,63 @@ msgstr "Filtrá los objetos por acontecimientos asociados."
 
 msgid "Browse keywords and vocabulary terms you have associated with your records.  You can displays your keywords as a list or hierarchy of terms."
 msgstr "Explorá las palabras clave y términos de vocabulario asociados a los registros."
+
+msgid "Sort By"
+msgstr "Ordenar por"
+
+msgid "Sort by:"
+msgstr "Ordenar por:"
+
+msgid "Sort Order"
+msgstr "Orden"
+
+msgid "Ascending"
+msgstr "Ascendente"
+
+msgid "Descending"
+msgstr "Descendente"
+
+msgid "ascending"
+msgstr "ascendente"
+
+msgid "descending"
+msgstr "descendente"
+
+msgid "Recent Searches"
+msgstr "Búsquedas recientes"
+
+msgid "View"
+msgstr "Ver"
+
+msgid "Browse"
+msgstr "Navegar"
+
+msgid "Loading..."
+msgstr "Cargando..."
+
+msgid "Add selected results to %1"
+msgstr "Agregar selección a %1"
+
+msgid "Sort by"
+msgstr "Ordenar por"
+
+msgid "Images"
+msgstr "Imágenes"
+
+msgid "List"
+msgstr "Lista"
+
+msgid "Date"
+msgstr "Fecha"
+
+msgid "Relevance"
+msgstr "Relevancia"
+
+msgid "Title"
+msgstr "Título"
+
+msgid "Identifier"
+msgstr "Identificador"
+
+msgid "Name"
+msgstr "Nombre"
