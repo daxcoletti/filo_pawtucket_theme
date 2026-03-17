@@ -24,6 +24,40 @@
 
 	<p>
 		<strong><?php print _t('Contacto'); ?></strong><br>
-		Email — <a href="mailto:archivos@filo.uba.ar">archivos@filo.uba.ar</a>
+		<?php
+		// Email obfuscado: los bots leen el HTML estático,
+		// los humanos ven el texto ensamblado por JavaScript.
+		// El atributo data-* divide la dirección en tres partes.
+		?>
+		Email — <span
+			class="filo-email"
+			data-u="archivos"
+			data-d="filo.uba"
+			data-t="ar"
+			style="cursor:pointer; color:#2db5a3; text-decoration:underline;"
+			title="<?php print _t('Hacé clic para copiar el email'); ?>">
+			archivos [en] filo.uba.ar
+		</span>
 	</p>
 </div>
+
+<script>
+(function() {
+	var el = document.querySelector('.filo-email');
+	if (!el) return;
+	var addr = el.dataset.u + '@' + el.dataset.d + '.' + el.dataset.t;
+	// Al hacer clic: abre el cliente de correo
+	el.addEventListener('click', function() {
+		window.location.href = 'mailto:' + addr;
+	});
+	// Al pasar el mouse: muestra la dirección real en el tooltip
+	el.addEventListener('mouseenter', function() {
+		el.setAttribute('title', addr);
+		el.textContent = addr;
+	});
+	el.addEventListener('mouseleave', function() {
+		el.textContent = 'archivos [en] filo.uba.ar';
+		el.setAttribute('title', '<?php print _t("Hacé clic para copiar el email"); ?>');
+	});
+})();
+</script>
