@@ -25,41 +25,41 @@
 						<div style="margin-bottom:15px;">
 							<?php print caNavLink($this->request, caGetThemeGraphic($this->request, 'filo_logo.png'), "", "", "", ""); ?>
 						</div>
-						<p style="color:#aabbcc; font-size:13px; line-height:1.7em;">
+						<p style="color:#8899bb; font-size:13px; line-height:1.7em;">
 							<?php print _t('Repositorio digital de la'); ?><br>
 							<strong style="color:#fff;"><?php print _t('Facultad de Filosofía y Letras'); ?></strong><br>
 							<?php print _t('Universidad de Buenos Aires'); ?>
 						</p>
 						<div class="social" style="margin-top:15px;">
-							<a href="https://www.facebook.com/filosofiayletrasuba" target="_blank" style="color:#ccd9ff; font-size:20px; margin-right:12px;"><i class="fa fa-facebook-square"></i></a>
-							<a href="https://x.com/filo_uba" target="_blank" style="color:#ccd9ff; font-size:20px; margin-right:12px;"><i class="fa fa-twitter"></i></a>
-							<a href="https://www.instagram.com/filo.uba" target="_blank" style="color:#ccd9ff; font-size:20px; margin-right:12px;"><i class="fa fa-instagram"></i></a>
-							<a href="https://www.youtube.com/@FFyL" target="_blank" style="color:#ccd9ff; font-size:20px; margin-right:12px;"><i class="fa fa-youtube-play"></i></a>
+							<a href="https://www.facebook.com/filosofiayletrasuba" target="_blank" style="color:#c8e6e4; font-size:20px; margin-right:12px;"><i class="fa fa-facebook-square"></i></a>
+							<a href="https://x.com/filo_uba" target="_blank" style="color:#c8e6e4; font-size:20px; margin-right:12px;"><i class="fa fa-twitter"></i></a>
+							<a href="https://www.instagram.com/filo.uba" target="_blank" style="color:#c8e6e4; font-size:20px; margin-right:12px;"><i class="fa fa-instagram"></i></a>
+							<a href="https://www.youtube.com/@FFyL" target="_blank" style="color:#c8e6e4; font-size:20px; margin-right:12px;"><i class="fa fa-youtube-play"></i></a>
 						</div>
 					</div>
 
 					<!-- Colección / Sitio -->
 					<div class="col-sm-4" style="margin-bottom:20px;">
-						<h6 style="color:#f0c040; text-transform:uppercase; font-size:11px; letter-spacing:2px; border-bottom:1px solid #2a3f6f; padding-bottom:8px; margin-bottom:12px;"><?php print _t('Colección'); ?></h6>
+						<h6 style="color:#2db5a3; text-transform:uppercase; font-size:11px; letter-spacing:2px; border-bottom:1px solid #252d4a; padding-bottom:8px; margin-bottom:12px;"><?php print _t('Colección'); ?></h6>
 						<ul style="list-style:none; padding:0; margin:0;">
 							<li style="margin-bottom:6px;">
-								<a href="<?php print caNavUrl($this->request, 'FindingAid', 'Collection', 'Index'); ?>" style="color:#ccd9ff; font-size:13px; text-decoration:none;">
-									<i class="fa fa-angle-right" style="margin-right:6px; color:#f0c040;"></i><?php print _t('Fondos y Colecciones'); ?>
+								<a href="<?php print caNavUrl($this->request, 'FindingAid', 'Collection', 'Index'); ?>" style="color:#c8e6e4; font-size:13px; text-decoration:none;">
+									<i class="fa fa-angle-right" style="margin-right:6px; color:#2db5a3;"></i><?php print _t('Fondos y Colecciones'); ?>
 								</a>
 							</li>
 							<li style="margin-bottom:6px;">
-								<a href="<?php print caNavUrl($this->request, '', 'Browse', 'Index'); ?>" style="color:#ccd9ff; font-size:13px; text-decoration:none;">
-									<i class="fa fa-angle-right" style="margin-right:6px; color:#f0c040;"></i><?php print _t('Explorar'); ?>
+								<a href="<?php print caNavUrl($this->request, '', 'Browse', 'Index'); ?>" style="color:#c8e6e4; font-size:13px; text-decoration:none;">
+									<i class="fa fa-angle-right" style="margin-right:6px; color:#2db5a3;"></i><?php print _t('Explorar'); ?>
 								</a>
 							</li>
 							<li style="margin-bottom:6px;">
-								<a href="<?php print caNavUrl($this->request, '', 'Search', 'advanced/objects'); ?>" style="color:#ccd9ff; font-size:13px; text-decoration:none;">
-									<i class="fa fa-angle-right" style="margin-right:6px; color:#f0c040;"></i><?php print _t('Búsqueda Avanzada'); ?>
+								<a href="<?php print caNavUrl($this->request, '', 'Search', 'advanced/objects'); ?>" style="color:#c8e6e4; font-size:13px; text-decoration:none;">
+									<i class="fa fa-angle-right" style="margin-right:6px; color:#2db5a3;"></i><?php print _t('Búsqueda Avanzada'); ?>
 								</a>
 							</li>
 							<li style="margin-bottom:6px;">
-								<a href="<?php print caNavUrl($this->request, '', 'Gallery', 'Index'); ?>" style="color:#ccd9ff; font-size:13px; text-decoration:none;">
-									<i class="fa fa-angle-right" style="margin-right:6px; color:#f0c040;"></i><?php print _t('Galerías'); ?>
+								<a href="<?php print caNavUrl($this->request, '', 'Gallery', 'Index'); ?>" style="color:#c8e6e4; font-size:13px; text-decoration:none;">
+									<i class="fa fa-angle-right" style="margin-right:6px; color:#2db5a3;"></i><?php print _t('Galerías'); ?>
 								</a>
 							</li>
 						</ul>
@@ -67,24 +67,24 @@
 
 					<!-- Información de contacto -->
 					<div class="col-sm-4" style="margin-bottom:20px;">
-						<h6 style="color:#f0c040; text-transform:uppercase; font-size:11px; letter-spacing:2px; border-bottom:1px solid #2a3f6f; padding-bottom:8px; margin-bottom:12px;"><?php print _t('Contacto'); ?></h6>
+						<h6 style="color:#2db5a3; text-transform:uppercase; font-size:11px; letter-spacing:2px; border-bottom:1px solid #252d4a; padding-bottom:8px; margin-bottom:12px;"><?php print _t('Contacto'); ?></h6>
 						<ul style="list-style:none; padding:0; margin:0;">
-							<li style="margin-bottom:8px; color:#aabbcc; font-size:13px;">
-								<i class="fa fa-map-marker" style="margin-right:8px; color:#f0c040;"></i><?php print _t('Puán 480, Ciudad Autónoma de Buenos Aires'); ?>
+							<li style="margin-bottom:8px; color:#8899bb; font-size:13px;">
+								<i class="fa fa-map-marker" style="margin-right:8px; color:#2db5a3;"></i><?php print _t('Puán 480, Ciudad Autónoma de Buenos Aires'); ?>
 							</li>
 							<li style="margin-bottom:8px;">
-								<a href="<?php print caNavUrl($this->request, '', 'Contact', 'form'); ?>" style="color:#ccd9ff; font-size:13px; text-decoration:none;">
-									<i class="fa fa-envelope" style="margin-right:8px; color:#f0c040;"></i><?php print _t('Formulario de Contacto'); ?>
+								<a href="<?php print caNavUrl($this->request, '', 'Contact', 'form'); ?>" style="color:#c8e6e4; font-size:13px; text-decoration:none;">
+									<i class="fa fa-envelope" style="margin-right:8px; color:#2db5a3;"></i><?php print _t('Formulario de Contacto'); ?>
 								</a>
 							</li>
 							<li style="margin-bottom:8px;">
-								<a href="https://filo.uba.ar" target="_blank" style="color:#ccd9ff; font-size:13px; text-decoration:none;">
-									<i class="fa fa-external-link" style="margin-right:8px; color:#f0c040;"></i>filo.uba.ar
+								<a href="https://filo.uba.ar" target="_blank" style="color:#c8e6e4; font-size:13px; text-decoration:none;">
+									<i class="fa fa-external-link" style="margin-right:8px; color:#2db5a3;"></i>filo.uba.ar
 								</a>
 							</li>
 							<li style="margin-bottom:8px;">
-								<a href="<?php print caNavUrl($this->request, '', 'About', 'Index'); ?>" style="color:#ccd9ff; font-size:13px; text-decoration:none;">
-									<i class="fa fa-info-circle" style="margin-right:8px; color:#f0c040;"></i><?php print _t('Acerca del Repositorio'); ?>
+								<a href="<?php print caNavUrl($this->request, '', 'About', 'Index'); ?>" style="color:#c8e6e4; font-size:13px; text-decoration:none;">
+									<i class="fa fa-info-circle" style="margin-right:8px; color:#2db5a3;"></i><?php print _t('Acerca del Repositorio'); ?>
 								</a>
 							</li>
 						</ul>
@@ -93,7 +93,7 @@
 				</div><!-- end row -->
 
 				<!-- Línea inferior de copyright -->
-				<div style="border-top:1px solid #2a3f6f; padding-top:15px; padding-bottom:10px; text-align:center; color:#8899bb; font-size:12px;">
+				<div style="border-top:1px solid #252d4a; padding-top:15px; padding-bottom:10px; text-align:center; color:#8899bb; font-size:12px;">
 					&copy; <?php print date('Y'); ?> <?php print _t('Facultad de Filosofía y Letras'); ?> &mdash; <?php print _t('Universidad de Buenos Aires'); ?>.
 					<?php print _t('Todos los derechos reservados.'); ?>
 					&nbsp;|&nbsp;

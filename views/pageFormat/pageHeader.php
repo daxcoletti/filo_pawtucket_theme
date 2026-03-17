@@ -95,8 +95,8 @@ $va_bg_images = ['bg-bandera', 'bg-edificio'];
 					<ul class="list-inline" style="margin:0; padding:0;">
 						<li>
 							<a href="<?php print caNavUrl($this->request, '', 'MultiSearch', 'Index'); ?>"
-							   style="color:#1a2744; font-weight:700; text-decoration:none; text-transform:uppercase; font-size:10px; letter-spacing:1.5px;">
-								<span class="glyphicon glyphicon-search" style="margin-right:4px; color:#c0392b;"></span><?php print _t('Buscador'); ?>
+							   style="color:#1a2035; font-weight:700; text-decoration:none; text-transform:uppercase; font-size:10px; letter-spacing:1.5px;">
+								<span class="glyphicon glyphicon-search" style="margin-right:4px; color:#2db5a3;"></span><?php print _t('Buscador'); ?>
 							</a>
 						</li>
 					</ul>
@@ -105,12 +105,12 @@ $va_bg_images = ['bg-bandera', 'bg-edificio'];
 						<li>
 <?php if($this->request->isLoggedIn()): ?>
 							<a href="<?php print caNavUrl($this->request, '', 'LoginReg', 'Logout', array()); ?>"
-							   style="color:#1a2744; font-weight:700; text-decoration:none; text-transform:uppercase; font-size:10px; letter-spacing:1.2px;">
+							   style="color:#1a2035; font-weight:700; text-decoration:none; text-transform:uppercase; font-size:10px; letter-spacing:1.2px;">
 								<span class="glyphicon glyphicon-user" style="margin-right:4px;"></span><?php print $this->request->user->get("fname"); ?> — <?php print _t('Salir'); ?>
 							</a>
 <?php else: ?>
 							<a href="#" onclick="caMediaPanel.showPanel('<?php print caNavUrl($this->request, '', 'LoginReg', 'LoginForm', array()); ?>'); return false;"
-							   style="color:#1a2744; font-weight:700; text-decoration:none; text-transform:uppercase; font-size:10px; letter-spacing:1.2px;">
+							   style="color:#1a2035; font-weight:700; text-decoration:none; text-transform:uppercase; font-size:10px; letter-spacing:1.2px;">
 								<span class="glyphicon glyphicon-user" style="margin-right:4px;"></span><?php print _t('Ingresar'); ?>
 							</a>
 <?php endif; ?>
@@ -133,20 +133,20 @@ $va_bg_images = ['bg-bandera', 'bg-edificio'];
 				<!-- Redes sociales (solo desktop) -->
 				<div class="hidden-xs" style="display:flex; align-items:center; gap:14px;">
 					<a href="https://www.facebook.com/filosofiayletrasuba" target="_blank" title="Facebook"
-					   style="color:#1a2744; font-size:22px; text-decoration:none; transition:color .2s;"
-					   onmouseover="this.style.color='#c0392b'" onmouseout="this.style.color='#1a2744'">
+					   style="color:#1a2035; font-size:22px; text-decoration:none; transition:color .2s;"
+					   onmouseover="this.style.color='#2db5a3'" onmouseout="this.style.color='#1a2035'">
 						<i class="fa fa-facebook-square"></i></a>
 					<a href="https://x.com/filo_uba" target="_blank" title="X / Twitter"
-					   style="color:#1a2744; font-size:22px; text-decoration:none; transition:color .2s;"
-					   onmouseover="this.style.color='#c0392b'" onmouseout="this.style.color='#1a2744'">
+					   style="color:#1a2035; font-size:22px; text-decoration:none; transition:color .2s;"
+					   onmouseover="this.style.color='#2db5a3'" onmouseout="this.style.color='#1a2035'">
 						<i class="fa fa-twitter"></i></a>
 					<a href="https://www.instagram.com/filo.uba" target="_blank" title="Instagram"
-					   style="color:#1a2744; font-size:22px; text-decoration:none; transition:color .2s;"
-					   onmouseover="this.style.color='#c0392b'" onmouseout="this.style.color='#1a2744'">
+					   style="color:#1a2035; font-size:22px; text-decoration:none; transition:color .2s;"
+					   onmouseover="this.style.color='#2db5a3'" onmouseout="this.style.color='#1a2035'">
 						<i class="fa fa-instagram"></i></a>
 					<a href="https://www.youtube.com/@FFyL" target="_blank" title="YouTube"
-					   style="color:#1a2744; font-size:22px; text-decoration:none; transition:color .2s;"
-					   onmouseover="this.style.color='#c0392b'" onmouseout="this.style.color='#1a2744'">
+					   style="color:#1a2035; font-size:22px; text-decoration:none; transition:color .2s;"
+					   onmouseover="this.style.color='#2db5a3'" onmouseout="this.style.color='#1a2035'">
 						<i class="fa fa-youtube-play"></i></a>
 				</div>
 			</div>
@@ -155,7 +155,7 @@ $va_bg_images = ['bg-bandera', 'bg-edificio'];
 
 	<!-- 3. Navbar principal: fondo AZUL OSCURO con links de navegación -->
 	<nav class="navbar navbar-default yamm" role="navigation"
-	     style="background-color:#1a2744; border-radius:0; border:0; margin-bottom:0; min-height:46px; border-bottom:3px solid #c0392b;">
+	     style="background-color:#1a2035; border-radius:0; border:0; margin-bottom:0; min-height:46px; border-bottom:3px solid #2db5a3;">
 		<div class="container">
 			<div class="navbar-header">
 <?php
