@@ -661,7 +661,7 @@ a.readmore-js-toggle { color: #2db5a3; padding-bottom: 15px; }
 .filo-hero.bg-acta {
 	background-image:
 		linear-gradient(rgba(255,255,255,0.75), rgba(255,255,255,0.75)),
-		url('../graphics/bg_acta.jpg');
+		url('../graphics/bg_acta.png');
 	background-size: cover;
 	background-position: center top;
 }
