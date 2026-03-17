@@ -101,7 +101,11 @@
 				{{{representationViewer}}}
 				
 <?php print caNavLink($this->request, "<i class='fa fa-envelope'></i> Contact", '', '', 'Contact', 'form'); ?>
-<span style="margin-left: 30px;"><a href="#" onclick="caMediaPanel.showPanel('/index.php/Detail/GetMediaOverlay/context/objects/id/<?php print $t_object->getPrimaryKey(); ?>/representation_id/<?php print $this->getVar("representation_id"); ?>/overlay/1'); return false;" title="Zoom"><span class="glyphicon glyphicon-zoom-in"></span>"._t("View full item")."</a></span>
+<?php
+$vs_rep_id = $this->getVar('representation_id');
+$vs_obj_id = $t_object->getPrimaryKey();
+print '<span style="margin-left: 30px;"><a href="#" onclick="caMediaPanel.showPanel(\'/index.php/Detail/GetMediaOverlay/context/objects/id/'.$vs_obj_id.'/representation_id/'.$vs_rep_id.'/overlay/1\'); return false;" title="Zoom"><span class="glyphicon glyphicon-zoom-in"></span> '._t('Ver elemento completo').'</a></span>';
+?>
 				<div id="detailAnnotations"></div>
 				
 				<?php print caObjectRepresentationThumbnails($this->request, $this->getVar("representation_id"), $t_object, array("returnAs" => "bsCols", "linkTo" => "carousel", "bsColClasses" => "smallpadding col-sm-3 col-md-3 col-xs-4")); ?>
@@ -163,7 +167,7 @@
 				if ($t_object->get('ca_objects.type_id', array('convertCodesToDisplayText' => true)) == 'Photograph') {
 					if ($vs_taken = $t_object->get('ca_objects.at_pillow', array('convertCodesToDisplayText' => true))) {
 						if ($vs_taken == 'yes') {
-							print "<div class='unit'><h6>_t("Taken at Jacob's Pillow")</h6></div>";
+							print "<div class='unit'><h6>_t('Taken at Jacob\'s Pillow')</h6></div>";
 						}
 					}
 				}
