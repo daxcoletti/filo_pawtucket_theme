@@ -658,6 +658,13 @@ a.readmore-js-toggle { color: #2db5a3; padding-bottom: 15px; }
 	background-size: cover;
 	background-position: center center;
 }
+.filo-hero.bg-acta {
+	background-image:
+		linear-gradient(rgba(255,255,255,0.75), rgba(255,255,255,0.75)),
+		url('../graphics/bg_acta.jpg');
+	background-size: cover;
+	background-position: center top;
+}
 
 /* Footer — siempre sólido, sin interferencias */
 
