@@ -119,7 +119,7 @@ $qr_results 		= $this->getVar('result');
 				</div>
 			</div><!-- end blockResults -->
 		
-			<div class='allLink'><?php print caNavLink($this->request, _t('All %1 results', \$va_block_info['displayName']), '', '', 'Search', '{{{block}}}', array('search' => $vs_search));?></div>
+			<div class='allLink'><?php print caNavLink($this->request, _t('All %1 results', $va_block_info['displayName']), '', '', 'Search', '{{{block}}}', array('search' => $vs_search));?></div>
 
 
 			<script type="text/javascript">
