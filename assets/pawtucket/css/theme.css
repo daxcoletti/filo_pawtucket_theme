@@ -159,6 +159,7 @@ a.caAdvancedSearchFormReset:hover, a.caAdvancedSearchFormSubmit:hover {
 	font-family: 'Open Sans', sans-serif;
 	background-color: #1a2035 !important;
 	position: relative !important;
+	z-index: 2 !important;
 	bottom: auto !important;
 	left: auto !important;
 	padding: 40px 0 20px 0;
@@ -530,6 +531,13 @@ body.bg-edificio::before {
 #pageArea, .container {
 	position: relative;
 	z-index: 1;
+}
+/* Header y footer siempre por encima del overlay */
+nav.navbar, footer#footer,
+div[style*="background-color:#f2f2f2"],
+div[style*="background-color:#ffffff"] {
+	position: relative;
+	z-index: 2;
 }
 
 /* === CAROUSEL — fondo transparente en slides === */
