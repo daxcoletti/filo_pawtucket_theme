@@ -158,11 +158,21 @@ a.caAdvancedSearchFormReset:hover, a.caAdvancedSearchFormSubmit:hover {
 	border: 0;
 	font-family: 'Open Sans', sans-serif;
 	background-color: #1a2035 !important;
+	background-image: none !important;
 	position: relative !important;
-	z-index: 2 !important;
+	z-index: 1;
 	bottom: auto !important;
 	left: auto !important;
 	padding: 40px 0 20px 0;
+}
+/* Todos los divs hijos del footer heredan el fondo oscuro */
+#footer div,
+#footer .footerInner,
+#footer .container,
+#footer .row,
+#footer [class*="col-"] {
+	background-color: transparent !important;
+	background-image: none !important;
 }
 .footerInner { border-top: 0; }
 #footer a,
@@ -521,13 +531,17 @@ a.readmore-js-toggle { color: #2db5a3; padding-bottom: 15px; }
 
 /* === HERO FULL-VIEWPORT === */
 .filo-hero {
-	min-height: calc(100vh - 130px); /* 130px = altura aprox del header */
+	min-height: calc(100vh - 130px);
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	text-align: center;
 	padding: 60px 20px 40px;
 	position: relative;
+	/* Full-bleed: rompe el container de Bootstrap */
+	width: 100vw;
+	margin-left: calc(-50vw + 50%);
+	box-sizing: border-box;
 }
 .filo-hero-inner {
 	max-width: 750px;
@@ -642,9 +656,4 @@ a.readmore-js-toggle { color: #2db5a3; padding-bottom: 15px; }
 }
 
 /* Footer — siempre sólido, sin interferencias */
-footer#footer {
-	background-color: #1a2035 !important;
-	background-image: none !important;
-	position: relative;
-	z-index: 1;
-}
+
