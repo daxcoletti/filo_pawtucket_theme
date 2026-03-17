@@ -11,10 +11,12 @@
 	if(!$vs_caption_template){
 		$vs_caption_template = "<l>^ca_objects.preferred_labels.name</l>";
 	}
+	$va_bg = ['bg-bandera', 'bg-edificio'];
+	$vs_bg = $va_bg[array_rand($va_bg)];
 ?>
 
 <!-- HERO full-viewport -->
-<div class="filo-hero">
+<div class="filo-hero <?php print $vs_bg; ?>">
 	<div class="filo-hero-inner">
 		<p class="filo-hero-tagline"><?php print _t('Explorá la memoria documental de la'); ?></p>
 		<h1 class="filo-hero-title"><?php print _t('Facultad de Filosofía y Letras'); ?><br><span><?php print _t('Universidad de Buenos Aires'); ?></span></h1>

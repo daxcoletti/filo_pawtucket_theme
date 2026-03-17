@@ -49,8 +49,6 @@
 	}
 	$vb_has_user_links = (sizeof($va_user_links) > 0);
 
-$va_bg_images = ['bg-bandera', 'bg-edificio'];
-	$vs_bg_class = $va_bg_images[array_rand($va_bg_images)];
 ?><!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -79,7 +77,7 @@ $va_bg_images = ['bg-bandera', 'bg-edificio'];
     <link rel="stylesheet" type="text/css" href="<?php print $this->request->getAssetsUrlPath(); ?>/mirador/css/mirador-combined.css">
 
 </head>
-<body class="<?php print $vs_bg_class; ?>">
+<body>
 
 	<!-- ============================================================
 	     ENCABEZADO FILO UBA

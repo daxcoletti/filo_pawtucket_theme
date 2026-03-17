@@ -506,40 +506,7 @@ a.readmore-js-toggle { color: #2db5a3; padding-bottom: 15px; }
 	padding-bottom: 13px !important;
 }
 
-/* === FONDO ROTATIVO — solo en página de inicio === */
-/* Las clases bg-bandera/bg-edificio se aplican al body pero
-   el fondo visible solo aparece en el #pageArea de inicio (.front) */
-body.bg-bandera #pageArea.front,
-body.bg-edificio #pageArea.front {
-	background-size: cover;
-	background-position: center top;
-	background-attachment: scroll;
-	min-height: 100vh;
-}
-body.bg-bandera #pageArea.front {
-	background-image:
-		linear-gradient(rgba(255,255,255,0.82), rgba(255,255,255,0.82)),
-		url('../graphics/bg_bandera.jpg');
-}
-body.bg-edificio #pageArea.front {
-	background-image:
-		linear-gradient(rgba(255,255,255,0.82), rgba(255,255,255,0.82)),
-		url('../graphics/bg_edificio.jpg');
-}
-/* Body siempre blanco — el fondo solo vive en #pageArea.front */
-body.bg-bandera,
-body.bg-edificio {
-	background: #ffffff;
-}
-/* Footer siempre con su color sólido */
-footer#footer {
-	background-color: #1a2035 !important;
-	background-image: none !important;
-}
-#pageArea, .container {
-	position: relative;
-	z-index: 1;
-}
+
 
 /* === CAROUSEL — fondo transparente en slides === */
 .frontSlide,
@@ -655,4 +622,29 @@ footer#footer {
     padding: 60px 0 30px 0;
     margin-top: 50px;
     border-top: 5px solid #333;
+}
+
+/* === FONDO ROTATIVO — solo en el hero de inicio === */
+/* El fondo vive ÚNICAMENTE en .filo-hero, nunca en body ni pageArea */
+.filo-hero.bg-bandera {
+	background-image:
+		linear-gradient(rgba(255,255,255,0.80), rgba(255,255,255,0.80)),
+		url('../graphics/bg_bandera.jpg');
+	background-size: cover;
+	background-position: center center;
+}
+.filo-hero.bg-edificio {
+	background-image:
+		linear-gradient(rgba(255,255,255,0.80), rgba(255,255,255,0.80)),
+		url('../graphics/bg_edificio.jpg');
+	background-size: cover;
+	background-position: center center;
+}
+
+/* Footer — siempre sólido, sin interferencias */
+footer#footer {
+	background-color: #1a2035 !important;
+	background-image: none !important;
+	position: relative;
+	z-index: 1;
 }
