@@ -154,16 +154,20 @@ a.caAdvancedSearchFormReset:hover, a.caAdvancedSearchFormSubmit:hover {
 /* === FOOTER === */
 #footer {
 	color: #ffffff !important;
-	margin: 0;
-	border: 0;
+	margin: 0 !important;
+	border: 0 !important;
+	border-top: 0 !important;
 	font-family: 'Open Sans', sans-serif;
 	background-color: #1a2035 !important;
 	background-image: none !important;
 	position: relative !important;
-	z-index: 1;
 	bottom: auto !important;
 	left: auto !important;
-	padding: 40px 0 20px 0;
+	width: 100% !important;
+	height: auto !important;
+	min-height: 0 !important;
+	padding: 40px 0 20px 0 !important;
+	z-index: 1;
 }
 /* Todos los divs hijos del footer heredan el fondo oscuro */
 #footer div,
