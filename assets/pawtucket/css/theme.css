@@ -542,3 +542,101 @@ body.bg-edificio::before {
 	background-color: transparent !important;
 	background: transparent !important;
 }
+
+/* === HERO FULL-VIEWPORT === */
+.filo-hero {
+	min-height: calc(100vh - 130px); /* 130px = altura aprox del header */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	padding: 60px 20px 40px;
+	position: relative;
+}
+.filo-hero-inner {
+	max-width: 750px;
+	width: 100%;
+}
+.filo-hero-tagline {
+	font-size: 16px;
+	font-weight: 600;
+	color: #1a2744;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	margin-bottom: 16px;
+}
+.filo-hero-title {
+	font-family: 'Lato', sans-serif;
+	font-size: 42px;
+	font-weight: 900;
+	color: #1a2744;
+	line-height: 1.15;
+	margin-bottom: 10px;
+}
+.filo-hero-title span {
+	font-size: 26px;
+	font-weight: 400;
+	color: #c0392b;
+}
+.filo-hero-search {
+	margin: 36px auto 0;
+	max-width: 600px;
+}
+.filo-search-row {
+	display: flex;
+	border: 2px solid #1a2744;
+	border-radius: 4px;
+	overflow: hidden;
+	background: #fff;
+	box-shadow: 0 4px 20px rgba(26,39,68,0.15);
+}
+.filo-search-row input {
+	flex: 1;
+	border: none;
+	padding: 14px 18px;
+	font-size: 16px;
+	font-family: 'Open Sans', sans-serif;
+	outline: none;
+	background: transparent;
+}
+.filo-search-row button {
+	background: #1a2744;
+	border: none;
+	padding: 0 22px;
+	color: #fff;
+	font-size: 18px;
+	cursor: pointer;
+	transition: background .2s;
+}
+.filo-search-row button:hover { background: #c0392b; }
+.filo-search-row button:disabled { background: #aaa; cursor: default; }
+.filo-hero-scroll {
+	display: inline-block;
+	margin-top: 48px;
+	color: #1a2744;
+	text-decoration: none;
+	font-size: 13px;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 1.5px;
+	animation: bounce 2s infinite;
+}
+.filo-hero-scroll span { display: block; }
+.filo-hero-scroll:hover { color: #c0392b; text-decoration: none; }
+@keyframes bounce {
+	0%, 100% { transform: translateY(0); }
+	50%       { transform: translateY(6px); }
+}
+
+/* Sección carousel */
+.jcarousel-section {
+	padding: 40px 0 60px;
+	border-top: 3px solid #e8edf5;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+	.filo-hero-title { font-size: 28px; }
+	.filo-hero-title span { font-size: 20px; }
+	.filo-hero-tagline { font-size: 13px; }
+}
