@@ -648,3 +648,10 @@ footer#footer {
 	.filo-hero-title span { font-size: 20px; }
 	.filo-hero-tagline { font-size: 13px; }
 }
+.footer-institucional {
+    background-color: #1a1a1a !important;
+    color: #ffffff;
+    padding: 60px 0 30px 0;
+    margin-top: 50px;
+    border-top: 5px solid #333;
+}
