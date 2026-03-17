@@ -506,38 +506,31 @@ a.readmore-js-toggle { color: #2db5a3; padding-bottom: 15px; }
 	padding-bottom: 13px !important;
 }
 
-/* === FONDO ROTATIVO === */
+/* === FONDO ROTATIVO (con overlay blanco integrado) === */
 body.bg-bandera {
-	background-image: url('../graphics/bg_bandera.jpg');
+	background-image:
+		linear-gradient(rgba(255,255,255,0.82), rgba(255,255,255,0.82)),
+		url('../graphics/bg_bandera.jpg');
 	background-size: cover;
 	background-position: center top;
 	background-attachment: fixed;
 }
 body.bg-edificio {
-	background-image: url('../graphics/bg_edificio.jpg');
+	background-image:
+		linear-gradient(rgba(255,255,255,0.82), rgba(255,255,255,0.82)),
+		url('../graphics/bg_edificio.jpg');
 	background-size: cover;
 	background-position: center top;
 	background-attachment: fixed;
 }
-body.bg-bandera::before,
-body.bg-edificio::before {
-	content: '';
-	position: fixed;
-	top: 0; left: 0; right: 0; bottom: 0;
-	background: rgba(255, 255, 255, 0.82);
-	z-index: 0;
-	pointer-events: none;
+/* El footer tapa el fondo del body con su propio color sólido */
+footer#footer {
+	background-color: #1a2035 !important;
+	background-image: none !important;
 }
 #pageArea, .container {
 	position: relative;
 	z-index: 1;
-}
-/* Header y footer siempre por encima del overlay */
-nav.navbar, footer#footer,
-div[style*="background-color:#f2f2f2"],
-div[style*="background-color:#ffffff"] {
-	position: relative;
-	z-index: 2;
 }
 
 /* === CAROUSEL — fondo transparente en slides === */
