@@ -1,299 +1,174 @@
 <?php
 /* ----------------------------------------------------------------------
- * themes/default/views/bundles/ca_objects_default_html.php : 
- * ----------------------------------------------------------------------
- * CollectiveAccess
- * Open-source collections management software
- * ----------------------------------------------------------------------
- *
- * Software by Whirl-i-Gig (http://www.whirl-i-gig.com)
- * Copyright 2013-2015 Whirl-i-Gig
- *
- * For more information visit http://www.CollectiveAccess.org
- *
- * This program is free software; you may redistribute it and/or modify it under
- * the terms of the provided license as published by Whirl-i-Gig
- *
- * CollectiveAccess is distributed in the hope that it will be useful, but
- * WITHOUT ANY WARRANTIES whatsoever, including any implied warranty of 
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  
- *
- * This source code is free and modifiable under the terms of 
- * GNU General Public License. (http://www.gnu.org/copyleft/gpl.html). See
- * the "license.txt" file for details, or visit the CollectiveAccess web site at
- * http://www.CollectiveAccess.org
- *
+ * themes/filo/views/Details/ca_objects_default_html.php
+ * Vista de detalle de objetos — Museo Etnográfico Juan B. Ambrosetti
  * ----------------------------------------------------------------------
  */
-	$t_object = 			$this->getVar("item");
-	$t_representation = 	$this->getVar("t_representation");
-	$va_comments = 			$this->getVar("comments");
-	$va_options = 			$this->getVar("config_options");
+	$t_object        = $this->getVar("item");
+	$t_representation = $this->getVar("t_representation");
 	$va_access_values = caGetUserAccessValues($this->request);
-	
-	$type_code = $t_object->get('type_id', ['convertCodesToIdno' => true]);
-	
+
 	$o_icons_conf = caGetIconsConfig();
-	$va_object_type_specific_icons = $o_icons_conf->getAssoc("placeholders");
-	if(!($vs_default_placeholder = $o_icons_conf->get("placeholder_media_icon"))){
-		$vs_default_placeholder = "<i class='fa fa-picture-o fa-2x'></i>";
+	if(!($vs_placeholder = $o_icons_conf->get("placeholder_media_icon"))){
+		$vs_placeholder = "<i class='fa fa-picture-o fa-2x'></i>";
 	}
-	$placeholder = isset($va_object_type_specific_icons[$type_code]) ? $va_object_type_specific_icons[$type_code]['placeholder_media_icon'] : $vs_default_placeholder;
+	if(!$t_object->getRepresentationCount(['checkAccess' => $va_access_values])) {
+		$show_placeholder = true;
+	}
 ?>
 <div class="row">
-	<div class='col-xs-12 navTop'><!--- only shown at small screen size -->
+	<div class='col-xs-12 navTop'>
 		{{{previousLink}}}{{{resultsLink}}}{{{nextLink}}}
-	</div><!-- end detailTop -->
+	</div>
 	<div class='navLeftRight col-xs-1 col-sm-1 col-md-1 col-lg-1'>
 		<div class="detailNavBgLeft">
 			{{{previousLink}}}{{{resultsLink}}}
-		</div><!-- end detailNavBgLeft -->
-	</div><!-- end col -->
+		</div>
+	</div>
+
 	<div class='col-xs-12 col-sm-10 col-md-10 col-lg-10'>
 		<div class="container"><div class="row">
-			<div class='col-sm-6 col-md-6 col-lg-5 col-lg-offset-1'>
-<?php
-				switch($t_object->get("ca_objects.rights.image_rights")){
-					case "788": #own/manage download
-						$vs_display_type = "detail";
-						if ($t_representation) {
-							$vs_download_link = "<a href='".$t_representation->getMediaUrl("ca_object_representations.media", "large")."' class='downloadLink'><i class='fa fa-download'></i>"._t("Download Image")."</a>";
-						}
-					break;
-					# ------------------------------
-					case "789": #own/manage no download
-						$vs_display_type = "detail";
-						$vs_download_link = null;
-						
-					break;
-					# ------------------------------
-					case "790": #public domain
-						$vs_display_type = "detail";
-						if ($t_representation) {
-							$vs_download_link = "<a href='".$t_representation->getMediaUrl("ca_object_representations.media", "large")."' class='downloadLink'><i class='fa fa-download'></i>"._t("Download Large")."</a><br/><a href='".$t_representation->getMediaUrl("ca_object_representations.media", "small")."' class='downloadLink'><i class='fa fa-download'></i>"._t("Download Small")."</a>";						
-						}
-					break;
-					# ------------------------------					
-					case "791": #do not own
-						$vs_display_type = "detailSmall";
-						$vs_download_link = null;
-					break;
-					# ------------------------------										
-					default:
-						$vs_display_type = "detailSmall";
-						$vs_download_link = null;
-					break;
-					# ------------------------------
-				}
-				
-//                 print caObjectDetailMedia($this->request, $t_object->getPrimaryKey(), $t_representation, $t_object, array_merge(array("display" => $vs_display_type, "showAnnotations" => true, "primaryOnly" => caGetOption('representationViewerPrimaryOnly', $va_options, false), "dontShowPlaceholder" => caGetOption('representationViewerDontShowPlaceholder', $va_options, false), "captionTemplate" => caGetOption('representationViewerCaptionTemplate', $va_options, false))));
-//                 print "<div class='imageTools'>";
-//                 if (($t_representation) && ($t_representation->getMediaInfo('media', 'original', 'MIMETYPE') != "application/pdf")) {
-//                     print $vs_download_link;
-//                 }
-//                 print caNavLink($this->request, "<i class='fa fa-envelope'></i> Contact", '', '', 'Contact', 'form');
-//                 print "</div>";
 
-                if(!$t_object->getRepresentationCount(['checkAccess' => $va_access_values])) {
-                    print $placeholder;
-                }
-?>
+			{{!-- Columna izquierda: imagen --}}
+			<div class='col-sm-6 col-md-6 col-lg-5 col-lg-offset-1'>
+<?php if(isset($show_placeholder)) { print $vs_placeholder; } ?>
 				{{{representationViewer}}}
-				
-<?php print caNavLink($this->request, "<i class='fa fa-envelope'></i> Contact", '', '', 'Contact', 'form'); ?>
+
 <?php
 $vs_obj_id = $t_object->getPrimaryKey();
 $vs_rep_id = $t_representation ? $t_representation->getPrimaryKey() : '';
 if ($vs_rep_id) {
-    print '<span style="margin-left: 30px;"><a href="#" onclick="caMediaPanel.showPanel(\'/index.php/Detail/GetMediaOverlay/context/objects/id/'.$vs_obj_id.'/representation_id/'.$vs_rep_id.'/overlay/1\'); return false;" title="Zoom"><span class="glyphicon glyphicon-zoom-in"></span> '._t('Ver elemento completo').'</a></span>';
+	print '<div class="imageTools"><span><a href="#" onclick="caMediaPanel.showPanel(\'/index.php/Detail/GetMediaOverlay/context/objects/id/'.$vs_obj_id.'/representation_id/'.$vs_rep_id.'/overlay/1\'); return false;" title="Ampliar"><span class="glyphicon glyphicon-zoom-in"></span> '._t('Ver imagen completa').'</a></span></div>';
 }
 ?>
-				<div id="detailAnnotations"></div>
-				
 				<?php print caObjectRepresentationThumbnails($this->request, $this->getVar("representation_id"), $t_object, array("returnAs" => "bsCols", "linkTo" => "carousel", "bsColClasses" => "smallpadding col-sm-3 col-md-3 col-xs-4")); ?>
+			</div>
 
-			</div><!-- end col -->
-			
+			{{!-- Columna derecha: metadatos --}}
 			<div class='col-sm-6 col-md-6 col-lg-5'>
 				<H4>{{{ca_objects.preferred_labels.name}}}</H4>
-				<H6>{{{<unit>^ca_objects.type_id</unit>}}}</H6>
-				<HR>				
+				<H6>{{{<unit>^ca_objects.type_id%convertCodesToDisplayText=1</unit>}}}</H6>
+				<HR>
+
 <?php
-                if(in_array($type_code, ['moving_image', 'photograph', 'costume', 'set_piece'])) {
-					print "<div class='unit'><h6>"._t("Identifier")."</h6>".$t_object->get('ca_objects.idno')."</div>";
+				// Identificador
+				if ($v = $t_object->get('ca_objects.idno')) {
+					print "<div class='unit'><H6>"._t("Identificador")."</H6>".$v."</div>";
 				}
-				if ($va_author = $t_object->get('ca_entities.preferred_labels', array('restrictToRelationshipTypes' => array('author'), 'returnAsLink' => true, 'delimiter' => '<br/>'))) {
-					print "<div class='unit'><h6>"._t("Author")."</h6>".$va_author."</div>";
+				// Número original
+				if ($v = $t_object->get('ca_objects.numero_original')) {
+					print "<div class='unit'><H6>"._t("Número original")."</H6>".$v."</div>";
 				}
-				if ($va_videographer = $t_object->get('ca_entities.preferred_labels', array('restrictToRelationshipTypes' => array('videographer'), 'returnAsLink' => true, 'delimiter' => '<br/>'))) {
-					print "<div class='unit'><h6>"._t("Videographer/Filmmaker")."</h6>".$va_videographer."</div>";
-				}				
+				// Descripción
+				if ($v = $t_object->get('ca_objects.descripcion')) {
+					print "<div class='unit'><H6>"._t("Descripción")."</H6><span class='trimText'>".$v."</span></div>";
+				}
+?>
 
-				if ($va_date = $t_object->get('ca_objects.date')) {
-					print "<div class='unit'><H6>Date:</H6>".$va_date."</div>";
-				}
-
-				if ($va_publisher = $t_object->get('ca_entities.preferred_labels', array('restrictToRelationshipTypes' => array('publisher'), 'returnAsLink' => true, 'delimiter' => '<br/>'))) {
-					print "<div class='unit'><h6>"._t("Publisher")."</h6>".$va_publisher."</div>";
-				}
-?>					
-				{{{<ifdef code="ca_objects.venue"><div class='unit'><H6>Lugar:</H6><unit delimiter='<br/>'>^ca_objects.venue</unit></div></ifdef>}}}				
-				{{{<ifdef code="ca_objects.coverage"><div class='unit'><H6>Coverage:</H6><unit delimiter='<br/>'>^ca_objects.coverage</unit></div></ifdef>}}}				
-				{{{<ifdef code="ca_objects.isbn"><div class='unit'><H6>ISBN:</H6><unit delimiter='<br/>'>^ca_objects.isbn</unit></div></ifdef>}}}				
-				{{{<ifdef code="ca_objects.book_format"><div class='unit'><H6>Format:</H6><unit delimiter=', '>^ca_objects.book_format</unit></div></ifdef>}}}				
-
-				{{{<ifdef code="ca_objects.description">
-					<div class='unit'><H6>Descripción:</H6>
-						<span class="trimText">^ca_objects.description</span>
+				{{!-- Tipo de objeto --}}
+				{{{<ifdef code="ca_objects.tipo_objeto_vocab">
+					<div class='unit'><H6><?php print _t("Tipo de objeto"); ?></H6>
+						<unit delimiter=", ">^ca_objects.tipo_objeto_vocab%convertCodesToDisplayText=1</unit>
 					</div>
 				</ifdef>}}}
-				{{{<ifdef code="ca_objects.summary">
-					<div class='unit'><H6>Summary:</H6>
-						<span class="trimText">^ca_objects.summary</span>
+
+				{{!-- Material --}}
+				{{{<ifdef code="ca_objects.material">
+					<div class='unit'><H6><?php print _t("Material"); ?></H6>
+						<unit delimiter=", ">^ca_objects.material%convertCodesToDisplayText=1</unit>
 					</div>
-				</ifdef>}}}	
-				{{{<ifdef code="ca_objects.extentDACS"><div class='unit'><H6>Extent:</H6><unit delimiter=', '>^ca_objects.extentDACS</unit></div></ifdef>}}}				
-				{{{<ifdef code="ca_objects.medium"><div class='unit'><H6>Medium:</H6><unit delimiter=', '>^ca_objects.medium</unit></div></ifdef>}}}				
-				{{{<ifdef code="ca_objects.dimensions.height|ca_objects.dimensions.dwidth|ca_objects.dimensions.length|ca_objects.dimensions.diameter|ca_objects.dimensions.weight|ca_objects.dimensions.measurement_notes"><h6>Dimensiones</h6></ifdef>
-					<ifdef code="ca_objects.dimensions.height">^ca_objects.dimensions.height H</ifdef>
-					<ifdef code="ca_objects.dimensions.height,ca_objects.dimensions.dwidth"> X </ifdef>
-					<ifdef code="ca_objects.dimensions.dwidth">^ca_objects.dimensions.dwidth W</ifdef>
-					<ifdef code="ca_objects.dimensions.dwidth,ca_objects.dimensions.length"> X </ifdef>
-					<ifdef code="ca_objects.dimensions.length">^ca_objects.dimensions.length L</ifdef>
-					<ifdef code="ca_objects.dimensions.length,ca_objects.dimensions.diameter"> X </ifdef>
-					<ifdef code="ca_objects.dimensions.diameter">^ca_objects.dimensions.diameter Diameter</ifdef>
-					<ifdef code="ca_objects.dimensions.weight">, ^ca_objects.dimensions.weight Weight</ifdef>
-					<ifdef code="ca_objects.dimensions.measurement_notes"><br/>Notes: ^ca_objects.dimensions.measurement_notes </ifdef>
-				}}}		
-<?php
-				if ($t_object->get('ca_objects.type_id', array('convertCodesToDisplayText' => true)) == 'Photograph') {
-					if ($vs_taken = $t_object->get('ca_objects.at_pillow', array('convertCodesToDisplayText' => true))) {
-						if ($vs_taken == 'yes') {
-							print "<div class='unit'><h6>_t('Taken at Jacob\'s Pillow')</h6></div>";
-						}
-					}
-				}
-				if ($t_object->get('ca_objects.type_id', array('convertCodesToDisplayText' => true)) == 'Periodical') {
-					if ($vs_arrangement = $t_object->get('ca_objects.arrangement')) {
-						print "<div class='unit'><h6>"._t("System of Arrangement")."</h6>".$vs_arrangement."</div>";
-					}
-					if ($vs_holdings = $t_object->get('ca_objects.holdings')) {
-						print "<div class='unit'><h6>"._t("Holdings")."</h6>".$vs_holdings."</div>";
-					}															
-				}
-				if (($t_object->get('ca_objects.type_id', array('convertCodesToDisplayText' => true)) == 'Periodical')|($t_object->get('ca_objects.type_id', array('convertCodesToDisplayText' => true)) == 'Costumes')) {
-					if ($vs_provenance = $t_object->get('ca_objects.provenance')) {
-						print "<div class='unit'><h6>"._t("Provenance")."</h6>".$vs_provenance."</div>";
-					}				
-				}	
-				if ($t_object->get('ca_objects.type_id', array('convertCodesToDisplayText' => true)) == "Moving image") {
-					if ($vs_access = $t_object->get('ca_objects.access_format')) {
-						print "<div class='unit'><h6>"._t("Access Format")."</h6>".$vs_access."</div>";
-					}
-					if ($vs_master = $t_object->get('ca_objects.master_format')) {
-						print "<div class='unit'><h6>"._t("Master Format")."</h6>".$vs_master."</div>";
-					}
-					if ($vs_duration = $t_object->get('ca_objects.duration')) {
-						if ($vs_duration != "0.0s") {
-							print "<div class='unit'><h6>"._t("Duration")."</h6>".$vs_duration."</div>";
-						}
-					}
+				</ifdef>}}}
 
-					if (($va_camera = $t_object->get('ca_objects.camera', array('convertCodesToDisplayText' => true)))&&($va_camera != "-")) {
-						print "<div class='unit'><h6>"._t("Camera")."</h6>".$va_camera."</div>";
-					}
-						
-					if ($vs_tech_notes = $t_object->get('ca_objects.technical_notes')) {
-						print "<div class='unit'><h6>"._t("Technical Notes")."</h6>".$vs_tech_notes."</div>";
-					}																				
-				}			
-?>				
-				<hr></hr>
-					<div class="row">
-						<div class="col-sm-12">		
-							{{{<ifcount code="ca_entities.preferred_labels" excludeRelationshipTypes="author,videographer" min="1">
-								<h6>"._t("Related Entities")."</h6>
-								<unit relativeTo="ca_objects_x_entities" delimiter='<br/>' excludeRelationshipTypes="author,videographer"><l>^ca_entities.preferred_labels</l> (^ca_objects_x_entities.type_id)</unit>
-							</ifcount>}}}
+				{{!-- Técnica de manufactura --}}
+				{{{<ifdef code="ca_objects.manufactura">
+					<div class='unit'><H6><?php print _t("Técnica de manufactura"); ?></H6>
+						<unit delimiter=", ">^ca_objects.manufactura%convertCodesToDisplayText=1</unit>
+					</div>
+				</ifdef>}}}
+
+				{{!-- Decoración --}}
+				{{{<ifdef code="ca_objects.decoracion">
+					<div class='unit'><H6><?php print _t("Decoración"); ?></H6>
+						<unit delimiter=", ">^ca_objects.decoracion%convertCodesToDisplayText=1</unit>
+					</div>
+				</ifdef>}}}
+
+				{{!-- Estilo --}}
+				{{{<ifdef code="ca_objects.estilo">
+					<div class='unit'><H6><?php print _t("Estilo"); ?></H6>
+						<unit delimiter=", ">^ca_objects.estilo%convertCodesToDisplayText=1</unit>
+					</div>
+				</ifdef>}}}
+
+				{{!-- Época --}}
+				{{{<ifdef code="ca_objects.epoca">
+					<div class='unit'><H6><?php print _t("Época"); ?></H6>
+						<unit delimiter=", ">^ca_objects.epoca%convertCodesToDisplayText=1</unit>
+					</div>
+				</ifdef>}}}
+
+				{{!-- Grupo étnico --}}
+				{{{<ifdef code="ca_objects.grupo">
+					<div class='unit'><H6><?php print _t("Grupo étnico"); ?></H6>
+						<unit delimiter=", ">^ca_objects.grupo%convertCodesToDisplayText=1</unit>
+					</div>
+				</ifdef>}}}
+
+				{{!-- Comunidad --}}
+				{{{<ifdef code="ca_objects.comunidad">
+					<div class='unit'><H6><?php print _t("Comunidad"); ?></H6>
+						<unit delimiter=", ">^ca_objects.comunidad%convertCodesToDisplayText=1</unit>
+					</div>
+				</ifdef>}}}
+
+				{{!-- Dimensiones --}}
+				{{{<ifdef code="ca_objects.dimensiones.alto|ca_objects.dimensiones.ancho|ca_objects.dimensiones.profundidad|ca_objects.dimensiones.diametro|ca_objects.dimensiones.peso">
+					<div class='unit'><H6><?php print _t("Dimensiones"); ?></H6>
+					<ifdef code="ca_objects.dimensiones.alto">Alto: ^ca_objects.dimensiones.alto cm</ifdef>
+					<ifdef code="ca_objects.dimensiones.alto,ca_objects.dimensiones.ancho"> | </ifdef>
+					<ifdef code="ca_objects.dimensiones.ancho">Ancho: ^ca_objects.dimensiones.ancho cm</ifdef>
+					<ifdef code="ca_objects.dimensiones.ancho,ca_objects.dimensiones.profundidad"> | </ifdef>
+					<ifdef code="ca_objects.dimensiones.profundidad">Prof.: ^ca_objects.dimensiones.profundidad cm</ifdef>
+					<ifdef code="ca_objects.dimensiones.diametro"><br/>Diámetro: ^ca_objects.dimensiones.diametro cm</ifdef>
+					<ifdef code="ca_objects.dimensiones.peso"><br/>Peso: ^ca_objects.dimensiones.peso g</ifdef>
+					</div>
+				</ifdef>}}}
+
+				<HR>
 
 <?php
+				// Colección / jerarquía
+				if ($va_colecciones = $t_object->get('ca_collections.preferred_labels', array('returnAsLink' => true, 'delimiter' => ' &rsaquo; ', 'checkAccess' => $va_access_values))) {
+					print "<div class='unit'><H6>"._t("Colección")."</H6>".$va_colecciones."</div>";
+				}
 
-							if ($va_related_occurrences = $t_object->get('ca_occurrences.preferred_labels', array('delimiter' => '<br/>', 'returnAsLink' => true, 'restrictToTypes' => array('production'), 'checkAccess' => $va_access_values))) {
-								print "<h6>"._t("Related productions")."</h6>".$va_related_occurrences;
-							}
-							if ($va_related_works = $t_object->get('ca_occurrences.preferred_labels', array('delimiter' => '<br/>', 'returnAsLink' => true, 'restrictToTypes' => array('work'), 'checkAccess' => $va_access_values))) {
-								print "<h6>"._t("Related works")."</h6>".$va_related_works;
-							}
-							if ($va_related_events = $t_object->get('ca_occurrences.preferred_labels', array('delimiter' => '<br/>', 'returnAsLink' => true, 'restrictToTypes' => array('event'), 'checkAccess' => $va_access_values))) {
-								print "<h6>"._t("Related events")."</h6>".$va_related_events;
-							}
-							if ($va_related_objects = $t_object->get('ca_objects.related.preferred_labels', array('delimiter' => '<br/>', 'returnAsLink' => true, 'checkAccess' => $va_access_values))) {
-								print "<h6>"._t("Related Objects")."</h6>".$va_related_objects;
-							}							
-							if ($va_related_collections = $t_object->get('ca_collections.preferred_labels', array('delimiter' => '<br/>', 'returnAsLink' => true, 'checkAccess' => $va_access_values))) {
-								print "<h6>"._t("Related collections")."</h6>".$va_related_collections;
-							}	
-							if ($va_related_storage_locations = $t_object->get('ca_storage_locations.location_id', array('delimiter' => '<br/>', 'checkAccess' => $va_access_values, 'returnAsArray' => true))) {
-								print "<h6>"._t("Related Storage Locations")."</h6>";
-								foreach ($va_related_storage_locations as $va_key => $va_related_storage_location) {
-									$t_storage_location = new ca_storage_locations($va_related_storage_location);
-									print caNavLink($this->request, $t_storage_location->get('ca_storage_locations.preferred_labels'), '', '', 'Search', 'objects', array('search' =>'ca_storage_locations.location_id:'.$va_related_storage_location));
-								}
-							}
-							if (($t_object->get('ca_objects.type_id', array('convertCodesToDisplayText' => true)) != 'Book') && ($t_object->get('ca_objects.type_id', array('convertCodesToDisplayText' => true)) != 'Periodical')) {							
-								if ($va_rights = $t_object->getWithTemplate('<unit><ifdef code="ca_objects.rights.rightsStatement"><b>Statement:</b> ^ca_objects.rights.rightsStatement</ifdef><ifdef code="ca_objects.rights.rightsHolder"><br/><b>Rights Holder:</b> ^ca_objects.rights.rightsHolder</ifdef><ifdef code="ca_objects.rights.rightsNotes"><br/><b>Rights Notes:</b> ^ca_objects.rights.rightsNotes</ifdef></unit>')) {
-									print "<div class='unit'><h6>"._t("Rights")."</h6>".$va_rights."</div>";
-								}	
-							}																
+				// Procedencia geográfica
+				if ($va_lugares = $t_object->get('ca_places.preferred_labels', array('returnAsLink' => true, 'delimiter' => '<br/>', 'checkAccess' => $va_access_values))) {
+					print "<div class='unit'><H6>"._t("Procedencia geográfica")."</H6>".$va_lugares."</div>";
+				}
 
-							if ($va_terms = $t_object->get('ca_list_items.preferred_labels', array('returnAsArray' => true, 'checkAccess' => $va_access_values))) {
-								print "<div class='unit'><h6>"._t("Related Terms")."</h6>";
-								foreach ($va_terms as $va_key => $va_term) {
-									print "<p>".caNavLink($this->request, $va_term, '', '', 'MultiSearch', 'Index', array('search' => 'ca_list_items.preferred_labels:"'.$va_term.'"'))."</p>";
-								}
-								print "</div>";
-							}
-							
-							if ($va_lcsh_terms = $t_object->get('ca_objects.lcsh_terms', array('returnAsArray' => true))) {
-								print "<div class='unit'><h6>"._t("LCSH Terms")."</h6>";
-								foreach ($va_lcsh_terms as $va_key => $va_lcsh_term) {
-									$va_lcsh_term_name = explode('[',$va_lcsh_term);
-									print "<p>".caNavLink($this->request, $va_lcsh_term_name[0], '', '', 'MultiSearch', 'Index', array('search' => "ca_objects.lcsh_terms:".$va_lcsh_term_name[0]))."</p>";
-								}
-								print "</div>";
-							}
-							if ($t_object->get('ca_objects.external_link.url_entry')) {
-								$va_external_links = $t_object->get('ca_objects.external_link', array('returnWithStructure' => true));
-								print "<div class='unit'><h6>"._t("Links")."</h6>";
-								foreach ($va_external_links as $va_key => $va_external_link_t) {
-									foreach ($va_external_link_t as $va_key => $va_external_link) {
-										if ($va_external_link['url_source'] && $va_external_link['url_entry']) {
-											print "<a href='".$va_external_link['url_entry']."' target='_blank'>".$va_external_link['url_source']."</a><br/>";
-										} elseif ($va_external_link['url_entry']) {
-											print "<a href='".$va_external_link['url_entry']."' target='_blank'>".$va_external_link['url_entry']."</a><br/>";
-										}
-									}
-								}
-								print "</div>";
-							}
-?>							
-						</div><!-- end col -->				
-					</div><!-- end row -->
-			</div><!-- end col -->
+				// Colector/es
+				if ($va_colectores = $t_object->get('ca_entities.preferred_labels', array('returnAsLink' => true, 'delimiter' => '<br/>', 'checkAccess' => $va_access_values))) {
+					print "<div class='unit'><H6>"._t("Colector")."</H6>".$va_colectores."</div>";
+				}
+?>
+
+			</div><!-- end col metadatos -->
 		</div><!-- end row --></div><!-- end container -->
-	</div><!-- end col -->
+	</div><!-- end col center -->
+
 	<div class='navLeftRight col-xs-1 col-sm-1 col-md-1 col-lg-1'>
 		<div class="detailNavBgRight">
 			{{{nextLink}}}
-		</div><!-- end detailNavBgLeft -->
-	</div><!-- end col -->
+		</div>
+	</div>
 </div><!-- end row -->
 
 <script type='text/javascript'>
 	jQuery(document).ready(function() {
 		$('.trimText').readmore({
-		  speed: 75,
-		  maxHeight: 120
+			speed: 75,
+			maxHeight: 120
 		});
 	});
 </script>

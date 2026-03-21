@@ -1,110 +1,79 @@
 <?php
+/* ----------------------------------------------------------------------
+ * themes/filo/views/Details/ca_entities_default_html.php
+ * Vista de detalle de colectores — Museo Etnográfico Juan B. Ambrosetti
+ * ----------------------------------------------------------------------
+ */
 	$t_item = $this->getVar("item");
-	$va_comments = $this->getVar("comments");
 	$va_access_values = caGetUserAccessValues($this->request);
 ?>
 <div class="row">
-	<div class='col-xs-12 navTop'><!--- only shown at small screen size -->
+	<div class='col-xs-12 navTop'>
 		{{{previousLink}}}{{{resultsLink}}}{{{nextLink}}}
-	</div><!-- end detailTop -->
+	</div>
 	<div class='navLeftRight col-xs-1 col-sm-1 col-md-1 col-lg-1'>
 		<div class="detailNavBgLeft">
 			{{{previousLink}}}{{{resultsLink}}}
-		</div><!-- end detailNavBgLeft -->
-	</div><!-- end col -->
+		</div>
+	</div>
+
 	<div class='col-xs-12 col-sm-10 col-md-10 col-lg-10'>
 		<div class="container">
 			<div class="row">
-				<div class='col-sm-12 col-md-12 col-lg-12'>
+				<div class='col-sm-12'>
 					<H4>{{{^ca_entities.preferred_labels.displayname}}}</H4>
+					<H6><?php print _t("Colector"); ?></H6>
+					<HR>
 
-				</div><!-- end col -->
-			</div><!-- end row -->
-			<div class="row">	 		
-				<div class='col-sm-6 col-md-6 col-lg-6'>
-					<H6>{{{^ca_entities.type_id}}}</H6>
-					{{{<ifcount min="1" code="ca_entities.nonpreferred_labels"><h6><?php print _t("Nombres alternativos"); ?>: </h6><unit>^ca_entities.nonpreferred_labels.displayname</unit></ifcount>}}}
-					{{{<ifcount min="1" code="ca_entities.entity_date"><ifdef code="ca_entities.entity_date.ent_date_value"><h6>Fechas</h6><unit delimiter="<br/>">^ca_entities.entity_date.ent_date_value ^ca_entities.entity_date.ent_dates_types</unit></ifdef></ifcount>}}}
-					
-					{{{<ifdef code="ca_entities.biography"><H6>Biografía</H6>^ca_entities.biography<br/></ifdef>}}}
-					{{{<ifdef code="ca_entities.biography_source"><H6>Fuente de la biografía</H6>^ca_entities.biography_source<br/></ifdef>}}}
-					{{{<ifdef code="ca_entities.pillow_significance"><H6>Relevancia</H6>^ca_entities.pillow_significance<br/></ifdef>}}}
-					
-					<!-- {{{<ifcount code="ca_objects" min="1" max="1"><H6>Related object</H6><unit relativeTo="ca_objects" delimiter=" "><l>^ca_object_representations.media.small</l><br/><l>^ca_objects.preferred_labels.name</l><br/></unit></ifcount>}}}-->
-					{{{<ifcount code="ca_occurrences.related" min="1" restrictToTypes="production">
-						<H6>Producciones relacionadas</H6>
-						<div class='trimText'>
-							<unit relativeTo="ca_occurrences" restrictToTypes="production" delimiter="<br/>" sort="ca_occurrences.preferred_labels.name_sort">
-								<l>^ca_occurrences.preferred_labels.name</l> (^relationship_typename)
-							</unit>
-						</div>
-					</ifcount>}}}
-					
-				</div><!-- end col -->
-				<div class='col-sm-6 col-md-6 col-lg-6'>
-					{{{<ifcount code="ca_collections" min="1" max="1"><H6>Colección relacionada</H6></ifcount>}}}
-					{{{<ifcount code="ca_collections" min="2"><H6>Colecciones relacionadas</H6></ifcount>}}}
-					{{{<unit relativeTo="ca_collections" delimiter="<br/>"><l>^ca_collections.preferred_labels.name</l></unit>}}}
 <?php
-					if ($va_related_entity = $t_item->get('ca_entities.related.preferred_labels', array('delimiter' => '<br/>', 'returnAsLink' => true, 'checkAccess' => $va_access_values))) {
-						print "<div class='unit'><h6>"._t("Entidades relacionadas")."</h6>".$va_related_entity."</div>";
+					if ($v = $t_item->get('ca_entities.biography')) {
+						echo "<div class='unit'><H6>"._t("Biografía")."</H6><span class='trimText'>".$v."</span></div>";
+					}
+
+					// Colecciones relacionadas
+					if ($va_coll = $t_item->get('ca_collections.preferred_labels', ['returnAsLink' => true, 'delimiter' => '<br/>', 'checkAccess' => $va_access_values])) {
+						echo "<div class='unit'><H6>"._t("Colecciones")."</H6>".$va_coll."</div>";
 					}
 ?>
+				</div>
+			</div>
 
-					{{{<ifcount code="ca_occurrences.related" min="1" restrictToTypes="work">
-						<H6>Obras relacionadas</H6>
-						<div class='trimText'>
-							<unit relativeTo="ca_occurrences" restrictToTypes="work" delimiter="<br/>" sort="ca_occurrences.preferred_labels.name_sort">
-								<l>^ca_occurrences.preferred_labels.name</l> (^relationship_typename)
-							</unit>
-						</div>
-					</ifcount>}}}
-					{{{<ifcount code="ca_occurrences.related" min="1" restrictToTypes="event">
-						<H6>Eventos relacionados</H6>
-						<div class='trimText'>
-							<unit relativeTo="ca_occurrences" restrictToTypes="event" delimiter="<br/>" sort="ca_occurrences.preferred_labels.name_sort">
-								<l>^ca_occurrences.preferred_labels.name</l> (^relationship_typename)
-							</unit>
-						</div>
-					</ifcount>}}}										
-					
-			
-				</div><!-- end col --> 
-			</div><!-- end row -->
-{{{<ifcount code="ca_objects" min="1">
+			{{{<ifcount code="ca_objects" min="1">
 			<div class="row">
+				<div class='col-sm-12'><HR><H5><?php print _t("Objetos colectados"); ?></H5></div>
 				<div id="browseResultsContainer">
-					<?php print caBusyIndicatorIcon($this->request).' '.addslashes(_t('Loading...')); ?>
-				</div><!-- end browseResultsContainer -->
-			</div><!-- end row -->
+					<?php print caBusyIndicatorIcon($this->request).' '.addslashes(_t('Cargando...')); ?>
+				</div>
+			</div>
 			<script type="text/javascript">
 				jQuery(document).ready(function() {
-					jQuery("#browseResultsContainer").load("<?php print caNavUrl($this->request, '', 'Search', 'objects', array('search' => 'ca_entities.entity_id:^ca_entities.entity_id'), array('dontURLEncodeParameters' => true)); ?>", function() {
-						jQuery('#browseResultsContainer').jscroll({
-							autoTrigger: true,
-							loadingHtml: '<?php print caBusyIndicatorIcon($this->request).' '.addslashes(_t('Loading...')); ?>',
-							padding: 20,
-							nextSelector: 'a.jscroll-next'
-						});
-					});
-					
-					
+					jQuery("#browseResultsContainer").load(
+						"<?php print caNavUrl($this->request, '', 'Search', 'objects', ['search' => 'ca_entities.entity_id:^ca_entities.entity_id'], ['dontURLEncodeParameters' => true]); ?>",
+						function() {
+							jQuery('#browseResultsContainer').jscroll({
+								autoTrigger: true,
+								loadingHtml: '<?php print caBusyIndicatorIcon($this->request).' '.addslashes(_t('Cargando...')); ?>',
+								padding: 20,
+								nextSelector: 'a.jscroll-next'
+							});
+						}
+					);
 				});
 			</script>
-			<script type='text/javascript'>
-				jQuery(document).ready(function() {
-					$('.trimText').readmore({
-					  speed: 75,
-					  maxHeight: 120
-					});
-				});
-			</script>	
-</ifcount>}}}
+			</ifcount>}}}
+
 		</div><!-- end container -->
 	</div><!-- end col -->
+
 	<div class='navLeftRight col-xs-1 col-sm-1 col-md-1 col-lg-1'>
 		<div class="detailNavBgRight">
 			{{{nextLink}}}
-		</div><!-- end detailNavBgLeft -->
-	</div><!-- end col -->
+		</div>
+	</div>
 </div><!-- end row -->
+
+<script type='text/javascript'>
+	jQuery(document).ready(function() {
+		$('.trimText').readmore({ speed: 75, maxHeight: 120 });
+	});
+</script>
