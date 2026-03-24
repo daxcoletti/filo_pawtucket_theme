@@ -120,8 +120,8 @@ if ($vs_rep_id) {
 				<H6>{{{<unit>^ca_objects.type_id</unit>}}}</H6>
 				<HR>				
 <?php
-                if (\$vs_idno = \$t_object->get('ca_objects.idno')) {
-					print "<div class='unit'><h6>Identificador</h6>".\$vs_idno."</div>";
+                if ($vs_idno = $t_object->get('ca_objects.idno')) {
+					print "<div class='unit'><h6>Identificador</h6>".$vs_idno."</div>";
 				}
 				if ($va_author = $t_object->get('ca_entities.preferred_labels', array('restrictToRelationshipTypes' => array('author'), 'returnAsLink' => true, 'delimiter' => '<br/>'))) {
 					print "<div class='unit'><h6>"._t("Author")."</h6>".$va_author."</div>";
