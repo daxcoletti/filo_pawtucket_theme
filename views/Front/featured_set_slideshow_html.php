@@ -11,7 +11,7 @@
 	if(!$vs_caption_template){
 		$vs_caption_template = "<l>^ca_objects.preferred_labels.name</l>";
 	}
-	$va_bg = ['bg-bandera', 'bg-edificio', 'bg-acta'];
+	$va_bg = ['bg-bandera', 'bg-edificio'];
 	$vs_bg = $va_bg[array_rand($va_bg)];
 ?>
 

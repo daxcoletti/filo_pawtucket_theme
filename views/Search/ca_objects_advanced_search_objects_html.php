@@ -78,8 +78,8 @@
 {{{/form}}}
 
 		</div>
-		<div class="col-sm-4" style='border-left:1px solid #ddd; min-height:650px;'>
-			<h2 style='margin-top:60px; margin-bottom:30px;'><?php print _t("Links útiles"); ?></h2>
+		<div class="col-sm-4" style='border-left:1px solid #ddd; min-height:650px; padding-top:40px;'>
+			<img src="/themes/filo/assets/pawtucket/graphics/acta-1.jpg" alt="Acta fundacional FFyL" style="width:100%; height:auto; display:block;">
 		</div><!-- end col -->
 			</div></div>
 			</div>
