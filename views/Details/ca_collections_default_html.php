@@ -271,7 +271,7 @@
 				
 					<div class='col-sm-3 col-md-3 col-lg-3 contentsTable'>
 						<div style='margin-bottom:20px;'>
-							<h3><?php print _t("Table of Contents"); ?></h3>
+							<h3><?php print _t("Tabla de contenidos"); ?></h3>
 <?php
 							print join('<br/>', $va_anchors);
 ?>

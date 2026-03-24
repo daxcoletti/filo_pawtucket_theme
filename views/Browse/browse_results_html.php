@@ -50,6 +50,10 @@
 	
 	
 	$va_options			= $this->getVar('options');
+
+	// Mapa de traducción para etiquetas en inglés que vienen de configuración
+	$va_sort_labels = ['Date' => _t('Fecha'), 'Title' => _t('Título'), 'Identifier' => _t('Identificador')];
+	$va_view_labels = ['images' => _t('Imágenes'), 'list' => _t('Lista'), 'timeline' => _t('Línea de tiempo'), 'map' => _t('Mapa')];
 	$vs_extended_info_template = caGetOption('extendedInformationTemplate', $va_options, null);
 	$vb_ajax			= (bool)$this->request->isAjax();
 	$va_browse_info = $this->getVar("browseInfo");
@@ -96,15 +100,15 @@ if (!$vb_ajax) {	// !ajax
 ?>
 				<div class='row'>	
 					<div class='col-sm-3 col-md-3 col-lg-3 btn-group'>
-					<a href='#' data-toggle="dropdown"><?php print _t("Sort By"); ?>:<span class='btn'><b class="caret"></b><?php print $vs_current_sort;?></span></a>
+					<a href='#' data-toggle="dropdown"><?php print _t("Sort By"); ?>:<span class='btn'><b class="caret"></b><?php print $va_sort_labels[$vs_current_sort] ?? $vs_current_sort;?></span></a>
 					<ul class="dropdown-menu" role="menu">
 	<?php				
 						if(is_array($va_sorts = $this->getVar('sortBy')) && sizeof($va_sorts)) {
 							foreach($va_sorts as $vs_sort => $vs_sort_flds) {
 								if ($vs_current_sort === $vs_sort) {
-									print "<li><a href='#'><em>{$vs_sort}</em></a></li>\n";
+									print "<li><a href='#'><em>".($va_sort_labels[$vs_sort] ?? $vs_sort)."</em></a></li>\n";
 								} else {
-									print "<li>".caNavLink($this->request, $vs_sort, '', '*', '*', '*', array('view' => $vs_current_view, 'key' => $vs_browse_key, 'sort' => $vs_sort))."</li>\n";
+									print "<li>".caNavLink($this->request, $va_sort_labels[$vs_sort] ?? $vs_sort, '', '*', '*', '*', array('view' => $vs_current_view, 'key' => $vs_browse_key, 'sort' => $vs_sort))."</li>\n";
 								}
 							}
 						}
@@ -163,12 +167,12 @@ if (!$vb_ajax) {	// !ajax
 						$vs_views = array();
 						foreach($va_views as $vs_view => $va_view_info) {
 							if ($vs_current_view === $vs_view) {
-								$vs_views[] = '<li><a href="#" class="active">'.$vs_view.'</a></li>';
+								$vs_views[] = '<li><a href="#" class="active">'.($va_view_labels[$vs_view] ?? $vs_view).'</a></li>';
 							} else {
-								$vs_views[] = "<li>".caNavLink($this->request, $vs_view, 'disabled', '*', '*', '*', array('view' => $vs_view, 'key' => $vs_browse_key)).'</li>';
+								$vs_views[] = "<li>".caNavLink($this->request, $va_view_labels[$vs_view] ?? $vs_view, 'disabled', '*', '*', '*', array('view' => $vs_view, 'key' => $vs_browse_key)).'</li>';
 							}
 						}
-						print "<a href='#' data-toggle='dropdown'>"._t("View").": <span class='btn'><b class='caret'></b>".$vs_current_view."</span></a>";
+						print "<a href='#' data-toggle='dropdown'>"._t("View").": <span class='btn'><b class='caret'></b>".($va_view_labels[$vs_current_view] ?? $vs_current_view)."</span></a>";
 						print "<ul class='dropdown-menu' role='menu'>";
 						print join('',$vs_views);
 						print "</ul>";
