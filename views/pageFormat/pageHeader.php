@@ -106,11 +106,6 @@
 							   style="color:#1a2035; font-weight:700; text-decoration:none; text-transform:uppercase; font-size:10px; letter-spacing:1.2px;">
 								<span class="glyphicon glyphicon-user" style="margin-right:4px;"></span><?php print $this->request->user->get("fname"); ?> — <?php print _t('Salir'); ?>
 							</a>
-<?php else: ?>
-							<a href="#" onclick="caMediaPanel.showPanel('<?php print caNavUrl($this->request, '', 'LoginReg', 'LoginForm', array()); ?>'); return false;"
-							   style="color:#1a2035; font-weight:700; text-decoration:none; text-transform:uppercase; font-size:10px; letter-spacing:1.2px;">
-								<span class="glyphicon glyphicon-user" style="margin-right:4px;"></span><?php print _t('Ingresar'); ?>
-							</a>
 <?php endif; ?>
 						</li>
 <?php endif; ?>

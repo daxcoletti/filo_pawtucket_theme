@@ -27,9 +27,10 @@
 							<?php print caNavLink($this->request, '<img src="/themes/filo/assets/pawtucket/graphics/filo_logo_footer.svg" style="height:55px; width:auto;" alt="FFyL UBA" />', "", "", "", ""); ?>
 						</div>
 						<p style="color:#8899bb; font-size:13px; line-height:1.7em;">
-							<?php print _t('Repositorio digital de la'); ?><br>
-							<strong style="color:#fff;"><?php print _t('Facultad de Filosofía y Letras'); ?></strong><br>
-							<?php print _t('Universidad de Buenos Aires'); ?>
+							<strong style="color:#fff;">Archivo de la Facultad de Filosofía y Letras</strong><br>
+							Universidad de Buenos Aires<br>
+							Puán 480<br>
+							Caballito, Ciudad Autónoma de Buenos Aires, Argentina
 						</p>
 						<div class="social" style="margin-top:15px;">
 							<a href="https://www.facebook.com/filosofiayletrasuba" target="_blank" style="color:#c8e6e4; font-size:20px; margin-right:12px;"><i class="fa fa-facebook-square"></i></a>

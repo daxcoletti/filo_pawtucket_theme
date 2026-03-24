@@ -34,8 +34,8 @@
 			</form>
 		</div>
 
-		<a href="#recursos-destacados" class="filo-hero-scroll">
-			<span><?php print _t('Recursos destacados'); ?></span>
+		<a href="#documentos-destacados" class="filo-hero-scroll">
+			<span><?php print _t('Documentos destacados'); ?></span>
 			<span class="glyphicon glyphicon-chevron-down"></span>
 		</a>
 	</div>
@@ -49,7 +49,7 @@ $(document).ready(function(){
 	});
 	$('.filo-hero-scroll').on('click', function(e){
 		e.preventDefault();
-		$('html, body').animate({ scrollTop: $('#recursos-destacados').offset().top }, 600);
+		$('html, body').animate({ scrollTop: $('#documentos-destacados').offset().top }, 600);
 	});
 });
 </script>
@@ -57,9 +57,9 @@ $(document).ready(function(){
 <!-- CAROUSEL debajo del hero -->
 <?php if($qr_res && $qr_res->numHits()){ ?>
 
-<div id="recursos-destacados" class="jcarousel-section">
+<div id="documentos-destacados" class="jcarousel-section">
 	<div class="jcarousel-wrapper">
-		<div class="carousel-title"><?php print _t('Recursos Destacados'); ?></div>
+		<div class="carousel-title"><?php print _t('Documentos Destacados'); ?></div>
 		<a href="#" class="jcarousel-control-prev">&larr;</a>
 		<a href="#" class="jcarousel-control-next">&rarr;</a>
 		<div class="jcarousel">

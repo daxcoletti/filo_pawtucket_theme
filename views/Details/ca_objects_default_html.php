@@ -36,7 +36,8 @@
 	$o_icons_conf = caGetIconsConfig();
 	$va_object_type_specific_icons = $o_icons_conf->getAssoc("placeholders");
 	if(!($vs_default_placeholder = $o_icons_conf->get("placeholder_media_icon"))){
-		$vs_default_placeholder = "<i class='fa fa-picture-o fa-2x'></i>";
+		// Placeholder temporal — reemplazar con logo del Archivo cuando esté disponible
+		$vs_default_placeholder = "<img src='/themes/filo/assets/pawtucket/graphics/filo_logo.png' style='max-width:180px; opacity:0.35; display:block; margin:20px auto;' alt='Archivo FFyL' />";
 	}
 	$placeholder = isset($va_object_type_specific_icons[$type_code]) ? $va_object_type_specific_icons[$type_code]['placeholder_media_icon'] : $vs_default_placeholder;
 ?>
@@ -119,8 +120,8 @@ if ($vs_rep_id) {
 				<H6>{{{<unit>^ca_objects.type_id</unit>}}}</H6>
 				<HR>				
 <?php
-                if(in_array($type_code, ['moving_image', 'photograph', 'costume', 'set_piece'])) {
-					print "<div class='unit'><h6>"._t("Identifier")."</h6>".$t_object->get('ca_objects.idno')."</div>";
+                if (\$vs_idno = \$t_object->get('ca_objects.idno')) {
+					print "<div class='unit'><h6>Identificador</h6>".\$vs_idno."</div>";
 				}
 				if ($va_author = $t_object->get('ca_entities.preferred_labels', array('restrictToRelationshipTypes' => array('author'), 'returnAsLink' => true, 'delimiter' => '<br/>'))) {
 					print "<div class='unit'><h6>"._t("Author")."</h6>".$va_author."</div>";
@@ -130,7 +131,7 @@ if ($vs_rep_id) {
 				}				
 
 				if ($va_date = $t_object->get('ca_objects.date')) {
-					print "<div class='unit'><H6>Date:</H6>".$va_date."</div>";
+					print "<div class='unit'><h6>Fecha</h6>".$va_date."</div>";
 				}
 
 				if ($va_publisher = $t_object->get('ca_entities.preferred_labels', array('restrictToRelationshipTypes' => array('publisher'), 'returnAsLink' => true, 'delimiter' => '<br/>'))) {
@@ -152,7 +153,9 @@ if ($vs_rep_id) {
 						<span class="trimText">^ca_objects.summary</span>
 					</div>
 				</ifdef>}}}	
-				{{{<ifdef code="ca_objects.extentDACS"><div class='unit'><H6>Extent:</H6><unit delimiter=', '>^ca_objects.extentDACS</unit></div></ifdef>}}}				
+				{{{<ifdef code="ca_objects.extentDACS"><div class='unit'><h6>Volumen y soporte de la unidad de descripción</h6><unit delimiter=', '>^ca_objects.extentDACS</unit></div></ifdef>}}}
+				{{{<ifdef code="ca_objects.escala"><div class='unit'><h6>Escala</h6><unit delimiter=', '>^ca_objects.escala</unit></div></ifdef>}}}
+				{{{<ifdef code="ca_objects.physicalCharacteristics"><div class='unit'><h6>Características físicas</h6><unit delimiter=', '>^ca_objects.physicalCharacteristics</unit></div></ifdef>}}}				
 				{{{<ifdef code="ca_objects.medium"><div class='unit'><H6>Medium:</H6><unit delimiter=', '>^ca_objects.medium</unit></div></ifdef>}}}				
 				{{{<ifdef code="ca_objects.dimensions.height|ca_objects.dimensions.dwidth|ca_objects.dimensions.length|ca_objects.dimensions.diameter|ca_objects.dimensions.weight|ca_objects.dimensions.measurement_notes"><h6>Dimensiones</h6></ifdef>
 					<ifdef code="ca_objects.dimensions.height">^ca_objects.dimensions.height H</ifdef>
@@ -218,20 +221,25 @@ if ($vs_rep_id) {
 
 <?php
 
+							// Jerarquía: ruta de colecciones/fondos
+							if ($va_hierarchy = $t_object->get('ca_collections.hierarchy.preferred_labels.name', array('delimiter' => ' &rsaquo; ', 'returnAsLink' => false))) {
+								print "<div class='unit'><h6>Jerarquía</h6>".$va_hierarchy."</div>";
+							}
+
 							if ($va_related_occurrences = $t_object->get('ca_occurrences.preferred_labels', array('delimiter' => '<br/>', 'returnAsLink' => true, 'restrictToTypes' => array('production'), 'checkAccess' => $va_access_values))) {
-								print "<h6>"._t("Related productions")."</h6>".$va_related_occurrences;
+								print "<h6>Producciones relacionadas</h6>".$va_related_occurrences;
 							}
 							if ($va_related_works = $t_object->get('ca_occurrences.preferred_labels', array('delimiter' => '<br/>', 'returnAsLink' => true, 'restrictToTypes' => array('work'), 'checkAccess' => $va_access_values))) {
-								print "<h6>"._t("Related works")."</h6>".$va_related_works;
+								print "<h6>Obras relacionadas</h6>".$va_related_works;
 							}
 							if ($va_related_events = $t_object->get('ca_occurrences.preferred_labels', array('delimiter' => '<br/>', 'returnAsLink' => true, 'restrictToTypes' => array('event'), 'checkAccess' => $va_access_values))) {
-								print "<h6>"._t("Related events")."</h6>".$va_related_events;
+								print "<h6>Eventos relacionados</h6>".$va_related_events;
 							}
 							if ($va_related_objects = $t_object->get('ca_objects.related.preferred_labels', array('delimiter' => '<br/>', 'returnAsLink' => true, 'checkAccess' => $va_access_values))) {
-								print "<h6>"._t("Related Objects")."</h6>".$va_related_objects;
+								print "<h6>Documentos relacionados</h6>".$va_related_objects;
 							}							
 							if ($va_related_collections = $t_object->get('ca_collections.preferred_labels', array('delimiter' => '<br/>', 'returnAsLink' => true, 'checkAccess' => $va_access_values))) {
-								print "<h6>"._t("Related collections")."</h6>".$va_related_collections;
+								print "<h6>Colecciones relacionadas</h6>".$va_related_collections;
 							}	
 							if ($va_related_storage_locations = $t_object->get('ca_storage_locations.location_id', array('delimiter' => '<br/>', 'checkAccess' => $va_access_values, 'returnAsArray' => true))) {
 								print "<h6>"._t("Related Storage Locations")."</h6>";
