@@ -15,6 +15,43 @@
 
 	<hr style="margin: 30px 0; border-color: #e8edf5;">
 
+	<h2><?php print _t('Sistema de institutos'); ?></h2>
+
+	<p>Este CollectiveAccess se nutre de los fondos y colecciones de los institutos de investigación de la Facultad.</p>
+
+	<hr style="margin: 30px 0; border-color: #e8edf5;">
+
+	<h2><?php print _t('Autoridades'); ?></h2>
+
+	<p>
+		<strong><?php print _t('Decanato'); ?></strong><br>
+		<?php print _t('Decano'); ?><br>
+		Lic. Ricardo Manetti<br>
+		<?php print _t('Vicedecana'); ?><br>
+		Dra. Graciela Morgade<br>
+		<br>
+		<strong><?php print _t('Subsecretaría de Bibliotecas'); ?></strong><br>
+		<?php print _t('Subsecretaria'); ?><br>
+		Mg. María Rosa Mostaccio
+	</p>
+
+	<hr style="margin: 30px 0; border-color: #e8edf5;">
+
+	<h2><?php print _t('Equipo de Trabajo'); ?> (2024–2026)</h2>
+
+	<p>
+		Noelia Delpiano<br>
+		Maricel Martinez<br>
+		<br>
+		<strong><?php print _t('Responsable de desarrollo informático'); ?></strong><br>
+		Daniel Coletti<br>
+		<br>
+		<strong><?php print _t('Colaborador'); ?></strong><br>
+		Nahuel Victorero
+	</p>
+
+	<hr style="margin: 30px 0; border-color: #e8edf5;">
+
 	<p>
 		<strong>Archivo de la Facultad de Filosofía y Letras</strong><br>
 		Universidad de Buenos Aires<br>
