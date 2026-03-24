@@ -25,3 +25,36 @@
     border-bottom: 1px solid #444;
     padding-bottom: 10px;
 }
+
+/* Página "Acerca de" — columna derecha */
+.about-main-text h4 {
+    margin-top: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.metadata dl {
+    margin: 0;
+}
+
+.metadata dl h4 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: #1a2035;
+    border-bottom: 2px solid #2db5a3;
+    padding-bottom: 6px;
+}
+
+.metadata dt {
+    font-weight: 700;
+    color: #1a2035;
+    margin-top: 1rem;
+    font-size: 0.9em;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.metadata dd {
+    margin-left: 0;
+    color: #444;
+    line-height: 1.7em;
+}
