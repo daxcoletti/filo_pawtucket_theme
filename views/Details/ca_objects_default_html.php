@@ -130,7 +130,7 @@ if ($vs_rep_id) {
 					print "<div class='unit'><h6>"._t("Videographer/Filmmaker")."</h6>".$va_videographer."</div>";
 				}				
 
-				if ($va_date = $t_object->get('ca_objects.date')) {
+				if ($va_date = $t_object->get('ca_objects.unitdate.date_value')) {
 					print "<div class='unit'><h6>Fecha</h6>".$va_date."</div>";
 				}
 
@@ -153,9 +153,9 @@ if ($vs_rep_id) {
 						<span class="trimText">^ca_objects.summary</span>
 					</div>
 				</ifdef>}}}	
-				{{{<ifdef code="ca_objects.extentDACS"><div class='unit'><h6>Volumen y soporte de la unidad de descripción</h6><unit delimiter=', '>^ca_objects.extentDACS</unit></div></ifdef>}}}
+				{{{<ifdef code="ca_objects.extent_text"><div class='unit'><h6>Volumen y soporte de la unidad de descripción</h6><unit delimiter=', '>^ca_objects.extent_text</unit></div></ifdef>}}}
 				{{{<ifdef code="ca_objects.escala"><div class='unit'><h6>Escala</h6><unit delimiter=', '>^ca_objects.escala</unit></div></ifdef>}}}
-				{{{<ifdef code="ca_objects.physicalCharacteristics"><div class='unit'><h6>Características físicas</h6><unit delimiter=', '>^ca_objects.physicalCharacteristics</unit></div></ifdef>}}}				
+				{{{<ifdef code="ca_objects.physaccessrestrict"><div class='unit'><h6>Características físicas</h6><unit delimiter=', '>^ca_objects.physaccessrestrict</unit></div></ifdef>}}}				
 				{{{<ifdef code="ca_objects.medium"><div class='unit'><H6>Medium:</H6><unit delimiter=', '>^ca_objects.medium</unit></div></ifdef>}}}				
 				{{{<ifdef code="ca_objects.dimensions.height|ca_objects.dimensions.dwidth|ca_objects.dimensions.length|ca_objects.dimensions.diameter|ca_objects.dimensions.weight|ca_objects.dimensions.measurement_notes"><h6>Dimensiones</h6></ifdef>
 					<ifdef code="ca_objects.dimensions.height">^ca_objects.dimensions.height H</ifdef>
