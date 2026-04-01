@@ -235,12 +235,11 @@ if ($vs_rep_id) {
 							if ($va_related_events = $t_object->get('ca_occurrences.preferred_labels', array('delimiter' => '<br/>', 'returnAsLink' => true, 'restrictToTypes' => array('event'), 'checkAccess' => $va_access_values))) {
 								print "<h6>Eventos relacionados</h6>".$va_related_events;
 							}
-							if ($va_related_objects = $t_object->get('ca_objects.related.preferred_labels', array('delimiter' => '<br/>', 'returnAsLink' => true, 'checkAccess' => $va_access_values))) {
-								print "<h6>Documentos relacionados</h6>".$va_related_objects;
-							}							
-							if ($va_related_collections = $t_object->get('ca_collections.preferred_labels', array('delimiter' => '<br/>', 'returnAsLink' => true, 'checkAccess' => $va_access_values))) {
-								print "<h6>Colecciones relacionadas</h6>".$va_related_collections;
-							}	
+							$va_related_objects = $t_object->get('ca_objects.related.preferred_labels', array('delimiter' => '<br/>', 'returnAsLink' => true, 'checkAccess' => $va_access_values));
+							print "<div class='unit'><h6>Documentos relacionados</h6>".($va_related_objects ?: '<span style="color:#999; font-style:italic;">—</span>')."</div>";
+
+							$va_related_collections = $t_object->get('ca_collections.preferred_labels', array('delimiter' => '<br/>', 'returnAsLink' => true, 'checkAccess' => $va_access_values));
+							print "<div class='unit'><h6>Colecciones relacionadas</h6>".($va_related_collections ?: '<span style="color:#999; font-style:italic;">—</span>')."</div>";	
 							if ($va_related_storage_locations = $t_object->get('ca_storage_locations.location_id', array('delimiter' => '<br/>', 'checkAccess' => $va_access_values, 'returnAsArray' => true))) {
 								print "<h6>"._t("Related Storage Locations")."</h6>";
 								foreach ($va_related_storage_locations as $va_key => $va_related_storage_location) {
