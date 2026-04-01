@@ -86,7 +86,7 @@
 							</li>
 							<li style="margin-bottom:8px;">
 								<a href="<?php print caNavUrl($this->request, '', 'About', 'Index'); ?>" style="color:#c8e6e4; font-size:13px; text-decoration:none;">
-									<i class="fa fa-info-circle" style="margin-right:8px; color:#2db5a3;"></i><?php print _t('Acerca del Repositorio'); ?>
+									<i class="fa fa-info-circle" style="margin-right:8px; color:#2db5a3;"></i><?php print _t('Acerca de'); ?>
 								</a>
 							</li>
 						</ul>
