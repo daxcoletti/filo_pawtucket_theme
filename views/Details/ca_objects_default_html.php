@@ -101,7 +101,7 @@
 ?>
 				{{{representationViewer}}}
 				
-<?php print caNavLink($this->request, "<i class='fa fa-envelope'></i> Contact", '', '', 'Contact', 'form'); ?>
+<?php print caNavLink($this->request, "<i class='fa fa-envelope'></i> Contactar", '', '', 'Contact', 'form'); ?>
 <?php
 $vs_obj_id = $t_object->getPrimaryKey();
 $vs_rep_id = $t_representation ? $t_representation->getPrimaryKey() : '';
@@ -120,22 +120,19 @@ if ($vs_rep_id) {
 				<H6>{{{<unit>^ca_objects.type_id</unit>}}}</H6>
 				<HR>				
 <?php
-                if ($vs_idno = $t_object->get('ca_objects.idno')) {
-					print "<div class='unit'><h6>Identificador</h6>".$vs_idno."</div>";
-				}
-				if ($va_author = $t_object->get('ca_entities.preferred_labels', array('restrictToRelationshipTypes' => array('author'), 'returnAsLink' => true, 'delimiter' => '<br/>'))) {
-					print "<div class='unit'><h6>"._t("Author")."</h6>".$va_author."</div>";
-				}
+                $vs_idno = $t_object->get('ca_objects.idno');
+				print "<div class='unit'><h6>Identificador</h6>".($vs_idno ?: '<span style="color:#999; font-style:italic;">—</span>')."</div>";
+				$va_author = $t_object->get('ca_entities.preferred_labels', array('restrictToRelationshipTypes' => array('author'), 'returnAsLink' => true, 'delimiter' => '<br/>'));
+				print "<div class='unit'><h6>Autor</h6>".($va_author ?: '<span style="color:#999; font-style:italic;">—</span>')."</div>";
 				if ($va_videographer = $t_object->get('ca_entities.preferred_labels', array('restrictToRelationshipTypes' => array('videographer'), 'returnAsLink' => true, 'delimiter' => '<br/>'))) {
-					print "<div class='unit'><h6>"._t("Videographer/Filmmaker")."</h6>".$va_videographer."</div>";
+					print "<div class='unit'><h6>Videógrafo/Cineasta</h6>".$va_videographer."</div>";
 				}				
 
-				if ($va_date = $t_object->get('ca_objects.unitdate.date_value')) {
-					print "<div class='unit'><h6>Fecha</h6>".$va_date."</div>";
-				}
+				$va_date = $t_object->get('ca_objects.unitdate.date_value');
+				print "<div class='unit'><h6>Fecha</h6>".($va_date ?: '<span style="color:#999; font-style:italic;">—</span>')."</div>";
 
 				if ($va_publisher = $t_object->get('ca_entities.preferred_labels', array('restrictToRelationshipTypes' => array('publisher'), 'returnAsLink' => true, 'delimiter' => '<br/>'))) {
-					print "<div class='unit'><h6>"._t("Publisher")."</h6>".$va_publisher."</div>";
+					print "<div class='unit'><h6>Editorial</h6>".$va_publisher."</div>";
 				}
 ?>					
 				{{{<ifdef code="ca_objects.venue"><div class='unit'><H6>Lugar:</H6><unit delimiter='<br/>'>^ca_objects.venue</unit></div></ifdef>}}}				
@@ -215,7 +212,7 @@ if ($vs_rep_id) {
 					<div class="row">
 						<div class="col-sm-12">		
 							{{{<ifcount code="ca_entities.preferred_labels" excludeRelationshipTypes="author,videographer" min="1">
-								<h6>"._t("Related Entities")."</h6>
+								<h6>Entidades Relacionadas</h6>
 								<unit relativeTo="ca_objects_x_entities" delimiter='<br/>' excludeRelationshipTypes="author,videographer"><l>^ca_entities.preferred_labels</l> (^ca_objects_x_entities.type_id)</unit>
 							</ifcount>}}}
 
@@ -301,6 +298,32 @@ if ($vs_rep_id) {
 		$('.trimText').readmore({
 		  speed: 75,
 		  maxHeight: 120
+		});
+
+		// Traducir botones de navegación
+		$('.glyphicon-chevron-left').parent().filter(':contains("‹")').text('‹ Anterior');
+		$('.glyphicon-chevron-right').parent().filter(':contains("›")').text('Siguiente ›');
+
+		// Alternativa: traducir por atributo data o por clases
+		// Buscar y reemplazar en los links de navegación
+		$('.detailNavBgLeft a').each(function() {
+			var text = jQuery(this).text();
+			if (text.includes('‹')) {
+				jQuery(this).text(text.replace('‹', '').trim()).prepend('‹ ').text('‹ Anterior');
+			}
+			if (text.includes('Previous')) {
+				jQuery(this).text('Anterior');
+			}
+		});
+
+		$('.detailNavBgRight a').each(function() {
+			var text = jQuery(this).text();
+			if (text.includes('›')) {
+				jQuery(this).text('Siguiente ›');
+			}
+			if (text.includes('Next')) {
+				jQuery(this).text('Siguiente');
+			}
 		});
 	});
 </script>
