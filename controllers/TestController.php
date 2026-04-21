@@ -1,4 +1,6 @@
 <?php
+require_once(__CA_MODELS_DIR__."/ca_sets.php");
+require_once(__CA_MODELS_DIR__."/ca_objects.php");
 
 class TestController extends ActionController {
 	# -------------------------------------------------------
