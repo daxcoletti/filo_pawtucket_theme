@@ -66,7 +66,7 @@
 ?>	
 								<div class="row">
 									<div class="mainfacet col-sm-12">
-										<div class='browseTarget'><?php print _t('Browse For'); ?>:</div> 
+										<div class='browseTarget'><?php print _t('Explorar por'); ?>:</div> 
 										<ul class="nav nav-pills">			
 <?php
 											foreach($va_browse_types as $vs_browse_name => $va_browse_type){
