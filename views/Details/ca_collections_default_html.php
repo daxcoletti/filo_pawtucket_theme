@@ -261,14 +261,19 @@
 							$vs_buf.= "</div><!-- col Contents-->";
 						}
 					}
-					$vs_finding_aid.= $vs_buf;																																																																																																																																			
-?>
-					
+					$vs_finding_aid.= $vs_buf;
 
-					
-				
-				
-				
+					// Agregar link a la sección de imágenes en la tabla de contenidos
+					if ($t_item->get('ca_objects')) {
+						$va_anchors[] = "<a href='#images'>"._t("Imágenes de la colección")."</a>";
+					}
+?>
+
+
+
+
+
+
 					<div class='col-sm-3 col-md-3 col-lg-3 contentsTable'>
 						<div style='margin-bottom:20px;'>
 							<h3><?php print _t("Tabla de contenidos"); ?></h3>
@@ -306,7 +311,7 @@
 {{{<ifcount code="ca_objects" min="1">
 			<div class="row">
 				<div class="col-xs-12">
-					<h3><?php print _t("Elementos de la colección"); ?></h3>
+					<h3><a name="images"></a><?php print _t("Elementos de la colección"); ?></h3>
 					<div id="browseResultsContainer" class="collection-grid-container">
 						<?php print caBusyIndicatorIcon($this->request).' '.addslashes(_t('Loading...')); ?>
 					</div><!-- end browseResultsContainer -->
