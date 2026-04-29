@@ -65,78 +65,93 @@
     line-height: 1.8em;
 }
 
-/* Grid layout para elementos de colección */
+/* Grid layout para elementos de colección - DEBAJO DE METADATA */
 #browseResultsContainer.collection-grid-container {
     width: 100%;
-    display: flex !important;
-    flex-wrap: wrap !important;
-    gap: 15px !important;
-    justify-content: flex-start !important;
-    align-items: flex-start !important;
+    margin-top: 40px;
+    padding: 20px 0;
+    border-top: 2px solid #ddd;
 }
 
-/* Items de resultado - trabajar con Bootstrap pero hacer grilla más compacta */
+#browseResultsContainer.collection-grid-container h3 {
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e0e0e0;
+    color: #1a2035;
+}
+
+/* Items de resultado - Grilla responsive basada en Bootstrap */
 #browseResultsContainer.collection-grid-container .bResultItemCol {
-    /* Override Bootstrap para 4 columnas en desktop */
-    width: calc(25% - 11px) !important;
-    flex: 0 0 calc(25% - 11px) !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    float: none !important;
+    margin-bottom: 20px !important;
+    padding: 0 10px !important;
 }
 
-/* Para pantalla grande - 4 columnas */
+/* Desktop - 4 columnas */
 @media (min-width: 1200px) {
     #browseResultsContainer.collection-grid-container .bResultItemCol {
-        width: calc(25% - 11px) !important;
-        flex: 0 0 calc(25% - 11px) !important;
+        width: 25% !important;
     }
 }
 
-/* Para tablets - 3 columnas */
-@media (min-width: 768px) and (max-width: 1199px) {
+/* Tablets grandes - 3 columnas */
+@media (min-width: 992px) and (max-width: 1199px) {
     #browseResultsContainer.collection-grid-container .bResultItemCol {
-        width: calc(33.33% - 10px) !important;
-        flex: 0 0 calc(33.33% - 10px) !important;
+        width: 33.333% !important;
     }
 }
 
-/* Para mobile - 2 columnas */
+/* Tablets pequeñas - 2 columnas */
+@media (min-width: 768px) and (max-width: 991px) {
+    #browseResultsContainer.collection-grid-container .bResultItemCol {
+        width: 50% !important;
+    }
+}
+
+/* Mobile - 1 columna */
 @media (max-width: 767px) {
     #browseResultsContainer.collection-grid-container .bResultItemCol {
-        width: calc(50% - 7px) !important;
-        flex: 0 0 calc(50% - 7px) !important;
+        width: 100% !important;
     }
 }
 
 /* Estilos del item individual */
 #browseResultsContainer.collection-grid-container .bResultItem {
     margin: 0 !important;
-    padding: 10px !important;
-    border: 1px solid #e0e0e0 !important;
+    padding: 12px !important;
+    border: 1px solid #ddd !important;
     border-radius: 4px !important;
+    background: #fafafa !important;
+    transition: all 0.2s ease !important;
     height: 100% !important;
     display: flex !important;
     flex-direction: column !important;
-    background: #fafafa !important;
-    transition: box-shadow 0.2s ease !important;
 }
 
 #browseResultsContainer.collection-grid-container .bResultItem:hover {
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12) !important;
+    background: #fff !important;
+    border-color: #2db5a3 !important;
 }
 
+/* Imagen del item */
 #browseResultsContainer.collection-grid-container .bResultItem img {
-    max-height: 120px !important;
+    max-height: 140px !important;
     width: auto !important;
     margin: 0 auto 10px !important;
     display: block !important;
     object-fit: contain !important;
 }
 
+/* Texto del item */
 #browseResultsContainer.collection-grid-container .bResultItem p {
-    font-size: 0.85em !important;
-    margin: 3px 0 !important;
-    line-height: 1.2 !important;
+    font-size: 0.9em !important;
+    margin: 4px 0 !important;
+    line-height: 1.3 !important;
     color: #333 !important;
+    flex-grow: 1 !important;
+}
+
+#browseResultsContainer.collection-grid-container .bResultItem p:first-of-type {
+    font-weight: 500 !important;
+    margin-top: 0 !important;
 }
