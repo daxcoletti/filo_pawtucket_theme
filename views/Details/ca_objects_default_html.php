@@ -169,7 +169,7 @@ if ($vs_rep_id) {
 				if ($t_object->get('ca_objects.type_id', array('convertCodesToDisplayText' => true)) == 'Photograph') {
 					if ($vs_taken = $t_object->get('ca_objects.at_pillow', array('convertCodesToDisplayText' => true))) {
 						if ($vs_taken == 'yes') {
-							print "<div class='unit'><h6>_t('Taken at Jacob\'s Pillow')</h6></div>";
+							print "<div class='unit'><h6>"._t("Taken at Jacob's Pillow")."</h6></div>";
 						}
 					}
 				}
@@ -298,32 +298,6 @@ if ($vs_rep_id) {
 		$('.trimText').readmore({
 		  speed: 75,
 		  maxHeight: 120
-		});
-
-		// Traducir botones de navegación
-		$('.glyphicon-chevron-left').parent().filter(':contains("‹")').text('‹ Anterior');
-		$('.glyphicon-chevron-right').parent().filter(':contains("›")').text('Siguiente ›');
-
-		// Alternativa: traducir por atributo data o por clases
-		// Buscar y reemplazar en los links de navegación
-		$('.detailNavBgLeft a').each(function() {
-			var text = jQuery(this).text();
-			if (text.includes('‹')) {
-				jQuery(this).text(text.replace('‹', '').trim()).prepend('‹ ').text('‹ Anterior');
-			}
-			if (text.includes('Previous')) {
-				jQuery(this).text('Anterior');
-			}
-		});
-
-		$('.detailNavBgRight a').each(function() {
-			var text = jQuery(this).text();
-			if (text.includes('›')) {
-				jQuery(this).text('Siguiente ›');
-			}
-			if (text.includes('Next')) {
-				jQuery(this).text('Siguiente');
-			}
 		});
 	});
 </script>
