@@ -313,7 +313,8 @@
 {{{<ifcount code="ca_objects" min="1">
 			<div class="row">
 				<div class="col-xs-12">
-					<h3><?php print _t("Elementos de la colección"); ?></h3>
+					<!-- ✓ VERIFICACIÓN: Cambios aplicados correctamente el 2026-04-29 14:35 -->
+					<h3>✓ ELEMENTOS DE LA COLECCIÓN - CAMBIOS VISIBLES</h3>
 					<div id="browseResultsContainer" class="collection-grid-container">
 						<?php print caBusyIndicatorIcon($this->request).' '.addslashes(_t('Loading...')); ?>
 					</div><!-- end browseResultsContainer -->
