@@ -276,20 +276,13 @@
 							print join('<br/>', $va_anchors);
 ?>
 						</div><!-- end col -->
-<?php						
-					
-					if ($va_rep = $t_item->get('ca_object_representations.media.large')) {
-						print "<div class='collectionRep'>".$va_rep."</div>";
-					} elseif ($va_rep = $t_item->getWithTemplate('<unit relativeTo="ca_objects" restrictToRelationshipTypes="depicts"><unit relativeTo="ca_object_representations">^ca_object_representations.media.large</unit></unit>')) {
-						if ($va_reps = $t_item->get('ca_objects.object_id', array('restrictToRelationshipTypes' => array('depicts'), 'returnAsArray' => true, 'checkAccess' => $va_access_values))) {
-							foreach ($va_reps as $va_key => $va_rep) {
-								$t_object = new ca_objects($va_rep);
-								print "<div class='collectionRep'>".caNavLink($this->request, $t_object->get('ca_object_representations.media.small'), '', '', 'Detail', 'objects/'.$t_object->get('ca_objects.object_id'))."</div>";
-							}
-						}
-					}
-						
-?>					 					
+<?php
+
+					// Imágenes removidas del sidebar - ahora se muestran en grilla debajo
+					// Código original comentado:
+					// if ($va_rep = $t_item->get('ca_object_representations.media.large')) { ... }
+
+?>
 					</div><!-- end contentsTable-->
 					
 				
@@ -313,8 +306,7 @@
 {{{<ifcount code="ca_objects" min="1">
 			<div class="row">
 				<div class="col-xs-12">
-					<!-- ✓ VERIFICACIÓN: Cambios aplicados correctamente el 2026-04-29 14:35 -->
-					<h3>✓ ELEMENTOS DE LA COLECCIÓN - CAMBIOS VISIBLES</h3>
+					<h3><?php print _t("Elementos de la colección"); ?></h3>
 					<div id="browseResultsContainer" class="collection-grid-container">
 						<?php print caBusyIndicatorIcon($this->request).' '.addslashes(_t('Loading...')); ?>
 					</div><!-- end browseResultsContainer -->
