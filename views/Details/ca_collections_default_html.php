@@ -312,9 +312,12 @@
 			</div><!-- end row -->
 {{{<ifcount code="ca_objects" min="1">
 			<div class="row">
-				<div id="browseResultsContainer">
-					<?php print caBusyIndicatorIcon($this->request).' '.addslashes(_t('Loading...')); ?>
-				</div><!-- end browseResultsContainer -->
+				<div class="col-xs-12">
+					<h3><?php print _t("Elementos de la colección"); ?></h3>
+					<div id="browseResultsContainer" class="collection-grid-container">
+						<?php print caBusyIndicatorIcon($this->request).' '.addslashes(_t('Loading...')); ?>
+					</div><!-- end browseResultsContainer -->
+				</div>
 			</div><!-- end row -->
 			<script type="text/javascript">
 				jQuery(document).ready(function() {

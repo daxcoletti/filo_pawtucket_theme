@@ -64,3 +64,58 @@
     font-size: 1.05em;
     line-height: 1.8em;
 }
+
+/* Grid layout para elementos de colección */
+.collection-grid-container {
+    width: 100%;
+}
+
+.collection-grid-container .blockResults {
+    height: auto !important;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.collection-grid-container .blockResultsScroller {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.collection-grid-container .objectSet {
+    float: none;
+    display: contents;
+}
+
+.collection-grid-container .multisearchResult {
+    width: 120px !important;
+    height: 140px !important;
+    margin: 0 !important;
+    padding: 10px;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    flex: 0 0 auto;
+}
+
+.collection-grid-container .multisearchResult img {
+    max-height: 80px;
+    width: auto;
+    margin: 0 auto 5px;
+    display: block;
+}
+
+.collection-grid-container .multisearchResult p {
+    font-size: 0.85em;
+    margin: 3px 0;
+    line-height: 1.2;
+}
+
+/* Ocultar scroll buttons en vista de grilla */
+.collection-grid-container .scrollButtonPrevious,
+.collection-grid-container .scrollButtonNext {
+    display: none;
+}
