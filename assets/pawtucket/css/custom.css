@@ -66,56 +66,58 @@
 }
 
 /* Grid layout para elementos de colección */
-.collection-grid-container {
+#browseResultsContainer.collection-grid-container {
     width: 100%;
 }
 
-.collection-grid-container .blockResults {
+#browseResultsContainer.collection-grid-container .blockResults {
     height: auto !important;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: flex-start;
-    align-items: flex-start;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 20px !important;
+    justify-content: flex-start !important;
+    align-items: flex-start !important;
 }
 
-.collection-grid-container .blockResultsScroller {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
+#browseResultsContainer.collection-grid-container .blockResultsScroller {
+    width: 100% !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 20px !important;
 }
 
-.collection-grid-container .objectSet {
-    float: none;
-    display: contents;
+#browseResultsContainer.collection-grid-container .objectSet {
+    float: none !important;
+    display: contents !important;
 }
 
-.collection-grid-container .multisearchResult {
+#browseResultsContainer.collection-grid-container .multisearchResult {
     width: 120px !important;
     height: 140px !important;
     margin: 0 !important;
-    padding: 10px;
-    border: 1px solid #e0e0e0;
-    border-radius: 4px;
-    flex: 0 0 auto;
+    padding: 10px !important;
+    border: 1px solid #e0e0e0 !important;
+    border-radius: 4px !important;
+    flex: 0 0 auto !important;
+    float: none !important;
 }
 
-.collection-grid-container .multisearchResult img {
-    max-height: 80px;
-    width: auto;
-    margin: 0 auto 5px;
-    display: block;
+#browseResultsContainer.collection-grid-container .multisearchResult img {
+    max-height: 80px !important;
+    width: auto !important;
+    margin: 0 auto 5px !important;
+    display: block !important;
 }
 
-.collection-grid-container .multisearchResult p {
-    font-size: 0.85em;
-    margin: 3px 0;
-    line-height: 1.2;
+#browseResultsContainer.collection-grid-container .multisearchResult p {
+    font-size: 0.85em !important;
+    margin: 3px 0 !important;
+    line-height: 1.2 !important;
+    text-align: center !important;
 }
 
 /* Ocultar scroll buttons en vista de grilla */
-.collection-grid-container .scrollButtonPrevious,
-.collection-grid-container .scrollButtonNext {
-    display: none;
+#browseResultsContainer.collection-grid-container .scrollButtonPrevious,
+#browseResultsContainer.collection-grid-container .scrollButtonNext {
+    display: none !important;
 }
