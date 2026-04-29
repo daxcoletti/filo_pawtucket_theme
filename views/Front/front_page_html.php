@@ -29,5 +29,6 @@
  *
  * ----------------------------------------------------------------------
  */
+		// TEST: Cambio para verificar que los cambios en el tema se actualizan
 		print $this->render("Front/featured_set_slideshow_html.php");
 ?>
