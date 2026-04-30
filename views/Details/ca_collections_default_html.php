@@ -265,7 +265,7 @@
 
 					// Agregar link a la sección de imágenes en la tabla de contenidos
 					if ($t_item->get('ca_objects')) {
-						$va_anchors[] = "<a href='#images'>"._t("Imágenes de la colección")."</a>";
+						$va_anchors[] = "<a href='#images'>"._t("Documentos de la colección")."</a>";
 					}
 ?>
 
