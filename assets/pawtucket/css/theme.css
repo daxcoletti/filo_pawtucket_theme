@@ -79,7 +79,6 @@ h7 { display: block; text-transform: uppercase; color: #1a2035; font-size: 11px;
 	border: 0;
 	padding: 8px 16px;
 	letter-spacing: 1.5px;
-	border-radius: 2px;
 	font-size: 11px;
 	font-weight: 700;
 	font-family: 'Open Sans', sans-serif;
@@ -92,7 +91,6 @@ a.caAdvancedSearchFormReset:hover, a.caAdvancedSearchFormSubmit:hover {
 	text-decoration: none;
 	color: #ffffff;
 }
-.btn-sm, .btn-xs { border-radius: 2px; }
 
 /* === NAVBAR === */
 .navbar {
@@ -135,7 +133,7 @@ a.caAdvancedSearchFormReset:hover, a.caAdvancedSearchFormSubmit:hover {
 .navbar-default .navbar-nav > .open > a:focus { background-color: #252d4a; color: #ffffff; }
 .nav > li.dropdown > a.icon { padding-top: 18px; padding-bottom: 10px; }
 .navbar-default .navbar-form { margin-bottom: 0; margin-top: 14px; }
-.navbar .formOutline { background-color: #fff; border: 0; border-radius: 2px; }
+.navbar .formOutline { background-color: #fff; border: 0; }
 .navbar-toggle { border-color: #4a6090; }
 .navbar-toggle .icon-bar { background-color: #ffffff; }
 
@@ -240,7 +238,7 @@ div.browseFacetItem a { color: #1a2035; }
 .mainfacet li .active a { color: #1a2035; border-bottom: 3px solid #2db5a3; }
 .browseMenuBrowseSearch .form-control,
 .browseMenuBrowseSearch .form-control:active,
-.browseMenuBrowseSearch .form-control:focus { border-radius: 2px; box-shadow: none; text-transform: uppercase; letter-spacing: 1px; }
+.browseMenuBrowseSearch .form-control:focus { box-shadow: none; text-transform: uppercase; letter-spacing: 1px; }
 
 @media (min-width: 768px) { .navbar-form .form-group { width: 120px; } }
 @media (max-width: 1086px) {
@@ -254,8 +252,7 @@ div.browseFacetItem a { color: #1a2035; }
 .front .nav-pills > li > a:active,
 .front .nav-pills > li > a:focus {
 	background-color: #1a2035; text-transform: capitalize; font-weight: 700;
-	padding: 10px 16px; color: #fff; border-radius: 2px;
-}
+	padding: 10px 16px; color: #fff; }
 .featuredThumbs img { width: 100%; height: auto; }
 .front .jcarousel-wrapper { margin-top: -20px; margin-bottom: 0; }
 .front .jcarousel { margin-left: -15px; margin-right: -15px; }
@@ -280,7 +277,7 @@ div.browseFacetItem a { color: #1a2035; }
 	background-color: #2db5a3; padding: 10px 20px; color: #fff;
 	text-transform: uppercase; font-size: 12px; font-family: 'Open Sans', sans-serif;
 	font-weight: 700; letter-spacing: 2px; margin-top: 10px; display: inline-block;
-	border-radius: 2px; transition: background-color 0.2s ease;
+	 transition: background-color 0.2s ease;
 }
 .seeMore a:hover { background-color: #a93226; text-decoration: none; }
 .front a.jcarousel-control-prev, .front a.jcarousel-control-next { opacity: .7; }
@@ -343,13 +340,13 @@ div.browseFacetItem a { color: #1a2035; }
 .filterMenuFacetList { font-family: 'Open Sans', sans-serif; }
 .filterMenuFacetList li { margin-left: -5px; line-height: 20px; }
 .filterMenuFacetList li a { color: #1a2035; }
-.filterMenuFacetList li.active { background-color: #f0f4ff; border-radius: 0; margin-right: -15px; margin-left: -15px; padding-left: 15px; }
+.filterMenuFacetList li.active { background-color: #f0f4ff; margin-right: -15px; margin-left: -15px; padding-left: 15px; }
 .browse .btn, .sets .btn, .search .btn {
 	color: #1a2035; text-transform: capitalize; font-weight: 600; font-size: 12px;
 	margin: 0; padding: 5px 3px; background-color: #fafafa; border: 1px solid #d0d8e8; width: auto; display: inline-block; text-align: left;
 }
 .browse #searchOptions .btn, .sets #searchOptions .btn, .search #searchOptions .btn {
-	display: block; margin-top: 5px; border-radius: 0; border: 0; padding-left: 5px; padding-right: 5px; background-color: #f0f4ff;
+	display: block; margin-top: 5px; border: 0; padding-left: 5px; padding-right: 5px; background-color: #f0f4ff;
 }
 .facetName { font-weight: 700; padding-top: 15px; text-transform: capitalize; color: #555; padding-right: 5px; display: inline-block; }
 .browse .btn.browseBtn { margin-top: 0; display: inline-block; }
@@ -375,7 +372,7 @@ div.browseFacetItem a { color: #1a2035; }
 .bResultItem .bResultItemText h7 { margin-bottom: 2px; font-family: 'Open Sans', sans-serif; font-weight: 700; font-size: 13px; }
 .bResultItem .bResultItemText a { font-size: 13px; font-weight: normal; color: #1a2035; }
 .browse.results h5 { letter-spacing: 1px; }
-.browse h5 .btn { background-color: #1a2035; color: #fff; text-transform: uppercase; border: 0; padding: 5px 8px; letter-spacing: 1.5px; border-radius: 2px; font-size: 11px; margin-left: 5px; }
+.browse h5 .btn { background-color: #1a2035; color: #fff; text-transform: uppercase; border: 0; padding: 5px 8px; letter-spacing: 1.5px;  font-size: 11px; margin-left: 5px; }
 strong.facetName { text-transform: capitalize; font-size: 12px; }
 .browse .btn .glyphicon { color: white; }
 #bRefine { background-color: #f5f7fc; border-left: 3px solid #1a2035; padding: 15px; }
@@ -401,8 +398,7 @@ div.advancedSearchField { height: 60px; width: 100%; }
 .advancedSearchFieldTall { clear: both; height: 130px; }
 .advancedContainer { width: 400px; padding-bottom: 50px; }
 .caAdvancedSearchFormReset, .caAdvancedSearchFormSubmit {
-	padding: 6px 12px; background-color: #1a2035; color: #fff; border-radius: 2px;
-	font-family: 'Open Sans', sans-serif; font-weight: 700; text-transform: uppercase; font-size: 11px; letter-spacing: 1px;
+	padding: 6px 12px; background-color: #1a2035; color: #fff; 	font-family: 'Open Sans', sans-serif; font-weight: 700; text-transform: uppercase; font-size: 11px; letter-spacing: 1px;
 }
 .caAdvancedSearchFormReset:hover, .caAdvancedSearchFormSubmit:hover { background-color: #2db5a3; }
 #caAdvancedSearch select { width: 380px !important; }
@@ -465,7 +461,7 @@ a.readmore-js-toggle { color: #2db5a3; padding-bottom: 15px; }
 .gallery a.galleryIcon { display: inline-block; white-space: nowrap; }
 
 /* === CONTACT === */
-.contact .form-control { background-color: #f5f7fc; border: 1px solid #d0d8e8; border-radius: 2px; }
+.contact .form-control { background-color: #f5f7fc; border: 1px solid #d0d8e8;  }
 .contact .form-control:focus { border-color: #1a2035; box-shadow: 0 0 0 3px rgba(26,32,53,0.1); }
 
 /* === LIGHTBOX === */
@@ -546,6 +542,7 @@ a.readmore-js-toggle { color: #2db5a3; padding-bottom: 15px; }
 	width: 100vw;
 	margin-left: calc(-50vw + 50%);
 	box-sizing: border-box;
+	background-color: #1a2035;
 }
 .filo-hero-inner {
 	max-width: 750px;
@@ -554,16 +551,16 @@ a.readmore-js-toggle { color: #2db5a3; padding-bottom: 15px; }
 .filo-hero-tagline {
 	font-size: 16px;
 	font-weight: 600;
-	color: #1a2035;
+	color: #ffffff;
 	text-transform: uppercase;
 	letter-spacing: 2px;
 	margin-bottom: 16px;
 }
 .filo-hero-title {
-	font-family: 'Lato', sans-serif;
+	font-family: 'Bitter', serif;
 	font-size: 42px;
 	font-weight: 900;
-	color: #1a2035;
+	color: #ffffff;
 	line-height: 1.15;
 	margin-bottom: 10px;
 }
@@ -571,6 +568,7 @@ a.readmore-js-toggle { color: #2db5a3; padding-bottom: 15px; }
 	font-size: 26px;
 	font-weight: 400;
 	color: #2db5a3;
+	font-family: 'Bitter', serif;
 }
 .filo-hero-search {
 	margin: 36px auto 0;
@@ -578,8 +576,7 @@ a.readmore-js-toggle { color: #2db5a3; padding-bottom: 15px; }
 }
 .filo-search-row {
 	display: flex;
-	border: 2px solid #1a2035;
-	border-radius: 4px;
+	border: 2px solid #2db5a3;
 	overflow: hidden;
 	background: #fff;
 	box-shadow: 0 4px 20px rgba(26,32,53,0.15);
@@ -594,7 +591,7 @@ a.readmore-js-toggle { color: #2db5a3; padding-bottom: 15px; }
 	background: transparent;
 }
 .filo-search-row button {
-	background: #1a2035;
+	background: #2db5a3;
 	border: none;
 	padding: 0 22px;
 	color: #fff;
@@ -602,12 +599,12 @@ a.readmore-js-toggle { color: #2db5a3; padding-bottom: 15px; }
 	cursor: pointer;
 	transition: background .2s;
 }
-.filo-search-row button:hover { background: #2db5a3; }
+.filo-search-row button:hover { background: #25a892; }
 .filo-search-row button:disabled { background: #aaa; cursor: default; }
 .filo-hero-scroll {
 	display: inline-block;
 	margin-top: 48px;
-	color: #1a2035;
+	color: #ffffff;
 	text-decoration: none;
 	font-size: 13px;
 	font-weight: 700;
@@ -642,28 +639,16 @@ a.readmore-js-toggle { color: #2db5a3; padding-bottom: 15px; }
     border-top: 5px solid #333;
 }
 
-/* === FONDO ROTATIVO — solo en el hero de inicio === */
+/* === FONDO SÓLIDO AZUL INSTITUCIONAL === */
 /* El fondo vive ÚNICAMENTE en .filo-hero, nunca en body ni pageArea */
 .filo-hero.bg-bandera {
-	background-image:
-		linear-gradient(rgba(255,255,255,0.80), rgba(255,255,255,0.80)),
-		url('../graphics/bg_bandera.jpg');
-	background-size: cover;
-	background-position: center center;
+	background-color: #1a2035;
 }
 .filo-hero.bg-edificio {
-	background-image:
-		linear-gradient(rgba(255,255,255,0.80), rgba(255,255,255,0.80)),
-		url('../graphics/bg_edificio.jpg');
-	background-size: cover;
-	background-position: center center;
+	background-color: #1a2035;
 }
 .filo-hero.bg-acta {
-	background-image:
-		linear-gradient(rgba(255,255,255,0.75), rgba(255,255,255,0.75)),
-		url('../graphics/bg_acta.png');
-	background-size: cover;
-	background-position: center top;
+	background-color: #1a2035;
 }
 
 /* Footer — siempre sólido, sin interferencias */

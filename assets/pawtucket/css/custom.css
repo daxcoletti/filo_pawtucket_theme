@@ -1,3 +1,8 @@
+/* Ancho máximo del contenedor */
+.container {
+    max-width: 1296px !important;
+}
+
 /* Estilos para el Footer Institucional */
 .footer-institucional {
     background-color: #1a1a1a !important; /* El color oscuro de la Facultad */
