@@ -542,7 +542,7 @@ a.readmore-js-toggle { color: #2db5a3; padding-bottom: 15px; }
 	width: 100vw;
 	margin-left: calc(-50vw + 50%);
 	box-sizing: border-box;
-	background-color: #1a2035;
+	background-color: transparent;
 }
 .filo-hero-inner {
 	max-width: 750px;
@@ -555,6 +555,7 @@ a.readmore-js-toggle { color: #2db5a3; padding-bottom: 15px; }
 	text-transform: uppercase;
 	letter-spacing: 2px;
 	margin-bottom: 16px;
+	text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
 }
 .filo-hero-title {
 	font-family: 'Bitter', serif;
@@ -563,12 +564,14 @@ a.readmore-js-toggle { color: #2db5a3; padding-bottom: 15px; }
 	color: #ffffff;
 	line-height: 1.15;
 	margin-bottom: 10px;
+	text-shadow: 3px 3px 12px rgba(0, 0, 0, 0.7);
 }
 .filo-hero-title span {
 	font-size: 26px;
 	font-weight: 400;
-	color: #2db5a3;
+	color: #58d6c4;
 	font-family: 'Bitter', serif;
+	text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
 }
 .filo-hero-search {
 	margin: 36px auto 0;
@@ -576,10 +579,10 @@ a.readmore-js-toggle { color: #2db5a3; padding-bottom: 15px; }
 }
 .filo-search-row {
 	display: flex;
-	border: 2px solid #2db5a3;
+	border: 2px solid #58d6c4;
 	overflow: hidden;
-	background: #fff;
-	box-shadow: 0 4px 20px rgba(26,32,53,0.15);
+	background: rgba(255, 255, 255, 0.95);
+	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 .filo-search-row input {
 	flex: 1;
@@ -591,15 +594,16 @@ a.readmore-js-toggle { color: #2db5a3; padding-bottom: 15px; }
 	background: transparent;
 }
 .filo-search-row button {
-	background: #2db5a3;
+	background: #58d6c4;
 	border: none;
 	padding: 0 22px;
-	color: #fff;
+	color: #1a2035;
 	font-size: 18px;
 	cursor: pointer;
 	transition: background .2s;
+	font-weight: 700;
 }
-.filo-search-row button:hover { background: #25a892; }
+.filo-search-row button:hover { background: #40c9b8; }
 .filo-search-row button:disabled { background: #aaa; cursor: default; }
 .filo-hero-scroll {
 	display: inline-block;
@@ -611,9 +615,10 @@ a.readmore-js-toggle { color: #2db5a3; padding-bottom: 15px; }
 	text-transform: uppercase;
 	letter-spacing: 1.5px;
 	animation: bounce 2s infinite;
+	text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
 }
 .filo-hero-scroll span { display: block; }
-.filo-hero-scroll:hover { color: #2db5a3; text-decoration: none; }
+.filo-hero-scroll:hover { color: #58d6c4; text-decoration: none; text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5); }
 @keyframes bounce {
 	0%, 100% { transform: translateY(0); }
 	50%       { transform: translateY(6px); }
@@ -639,29 +644,32 @@ a.readmore-js-toggle { color: #2db5a3; padding-bottom: 15px; }
     border-top: 5px solid #333;
 }
 
-/* === FONDOS ROTATIVOS CON MARCA DE AGUA === */
-/* Las imágenes de fondo se muestran como capas sutiles detrás del fondo azul */
+/* === FONDOS ROTATIVOS PROTAGONISTAS === */
+/* Las imágenes de fondo son el elemento principal con marca de agua blanca */
+body {
+	background-size: cover;
+	background-position: center top;
+	background-attachment: fixed;
+	background-color: #ffffff;
+	transition: background-image 0.8s ease-in-out;
+}
+
+body.bg-bandera {
+	background-image: url('../graphics/bg_bandera.jpg');
+}
+
+body.bg-edificio {
+	background-image: url('../graphics/bg_edificio.jpg');
+}
+
+/* Overlay semi-transparente blanco para marca de agua y legibilidad */
 body::before {
 	content: '';
 	position: fixed;
 	top: 0; left: 0; right: 0; bottom: 0;
-	background-size: cover;
-	background-position: center top;
-	background-attachment: fixed;
-	opacity: 0;
+	background-color: rgba(255, 255, 255, 0.25);
 	z-index: -1;
-	transition: opacity 0.8s ease-in-out;
 	pointer-events: none;
-}
-
-body.bg-bandera::before {
-	background-image: url('../graphics/bg_bandera.jpg');
-	opacity: 0.08;
-}
-
-body.bg-edificio::before {
-	background-image: url('../graphics/bg_edificio.jpg');
-	opacity: 0.08;
 }
 
 /* === FONDO SÓLIDO AZUL INSTITUCIONAL === */
