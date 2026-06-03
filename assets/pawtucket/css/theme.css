@@ -73,8 +73,8 @@ h7 { display: block; text-transform: uppercase; color: #1a2035; font-size: 11px;
 
 /* === BOTONES === */
 .btn-default, a.caAdvancedSearchFormReset, a.caAdvancedSearchFormSubmit {
-	background-color: #1a2035;
-	color: #fff;
+	background-color: #58d6c4;
+	color: #1a2035;
 	text-transform: uppercase;
 	border: 0;
 	padding: 8px 16px;
@@ -94,7 +94,7 @@ a.caAdvancedSearchFormReset:hover, a.caAdvancedSearchFormSubmit:hover {
 
 /* === NAVBAR === */
 .navbar {
-	background-color: #1a2035;
+	background-color: rgba(0, 0, 0, 0.3);
 	border: 0;
 	border-radius: 0;
 	margin-bottom: 0;
@@ -156,7 +156,7 @@ a.caAdvancedSearchFormReset:hover, a.caAdvancedSearchFormSubmit:hover {
 	border: 0 !important;
 	border-top: 0 !important;
 	font-family: 'Open Sans', sans-serif;
-	background-color: #1a2035 !important;
+	background-color: rgba(0, 0, 0, 0.7) !important;
 	background-image: none !important;
 	position: relative !important;
 	bottom: auto !important;
@@ -251,8 +251,8 @@ div.browseFacetItem a { color: #1a2035; }
 .front .nav-pills > li > a:hover,
 .front .nav-pills > li > a:active,
 .front .nav-pills > li > a:focus {
-	background-color: #1a2035; text-transform: capitalize; font-weight: 700;
-	padding: 10px 16px; color: #fff; }
+	background-color: #58d6c4; text-transform: capitalize; font-weight: 700;
+	padding: 10px 16px; color: #1a2035; }
 .featuredThumbs img { width: 100%; height: auto; }
 .front .jcarousel-wrapper { margin-top: -20px; margin-bottom: 0; }
 .front .jcarousel { margin-left: -15px; margin-right: -15px; }
@@ -271,7 +271,7 @@ div.browseFacetItem a { color: #1a2035; }
 	text-shadow: 0 -1px 0 rgba(0,0,0,0.5);
 	background-color: rgba(26,32,53,0.85);
 }
-.featuredSidebar { background-color: #1a2035; height: 550px; padding: 30px; color: #fff; }
+.featuredSidebar { background-color: rgba(0, 0, 0, 0.5); height: 550px; padding: 30px; color: #fff; }
 .featuredSidebar h5 { margin-top: 25px; }
 .seeMore a {
 	background-color: #2db5a3; padding: 10px 20px; color: #fff;
@@ -372,7 +372,7 @@ div.browseFacetItem a { color: #1a2035; }
 .bResultItem .bResultItemText h7 { margin-bottom: 2px; font-family: 'Open Sans', sans-serif; font-weight: 700; font-size: 13px; }
 .bResultItem .bResultItemText a { font-size: 13px; font-weight: normal; color: #1a2035; }
 .browse.results h5 { letter-spacing: 1px; }
-.browse h5 .btn { background-color: #1a2035; color: #fff; text-transform: uppercase; border: 0; padding: 5px 8px; letter-spacing: 1.5px;  font-size: 11px; margin-left: 5px; }
+.browse h5 .btn { background-color: #58d6c4; color: #1a2035; text-transform: uppercase; border: 0; padding: 5px 8px; letter-spacing: 1.5px;  font-size: 11px; margin-left: 5px; }
 strong.facetName { text-transform: capitalize; font-size: 12px; }
 .browse .btn .glyphicon { color: white; }
 #bRefine { background-color: #f5f7fc; border-left: 3px solid #1a2035; padding: 15px; }
@@ -398,7 +398,7 @@ div.advancedSearchField { height: 60px; width: 100%; }
 .advancedSearchFieldTall { clear: both; height: 130px; }
 .advancedContainer { width: 400px; padding-bottom: 50px; }
 .caAdvancedSearchFormReset, .caAdvancedSearchFormSubmit {
-	padding: 6px 12px; background-color: #1a2035; color: #fff; 	font-family: 'Open Sans', sans-serif; font-weight: 700; text-transform: uppercase; font-size: 11px; letter-spacing: 1px;
+	padding: 6px 12px; background-color: #58d6c4; color: #1a2035; 	font-family: 'Open Sans', sans-serif; font-weight: 700; text-transform: uppercase; font-size: 11px; letter-spacing: 1px;
 }
 .caAdvancedSearchFormReset:hover, .caAdvancedSearchFormSubmit:hover { background-color: #2db5a3; }
 #caAdvancedSearch select { width: 380px !important; }
@@ -448,7 +448,7 @@ div.advancedSearchField { height: 60px; width: 100%; }
 .gallery .galleryItem { background-color: #fff; box-shadow: none; margin-top: 0; }
 #gallerySetInfo a { color: #1a2035; }
 .gallery H5 { text-transform: uppercase; color: #1a2035; font-size: 13px; letter-spacing: 1px; font-family: 'Open Sans', sans-serif; font-weight: 700; }
-.gallery .galleryNext, .gallery .galleryPrevious, .gallery .galleryDetailNext, .gallery .galleryDetailPrevious { background-color: #1a2035; color: #fff; }
+.gallery .galleryNext, .gallery .galleryPrevious, .gallery .galleryDetailNext, .gallery .galleryDetailPrevious { background-color: #58d6c4; color: #1a2035; }
 .gallery #galleryDetailImageGrid { min-height: 0; }
 .gallery #galleryDetailObjectInfo { background-color: #f5f7fc; padding-bottom: 15px; }
 .gallery #gallerySetInfo a { color: #1a2035; }
