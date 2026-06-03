@@ -672,16 +672,16 @@ body::before {
 	pointer-events: none;
 }
 
-/* === FONDO SÓLIDO AZUL INSTITUCIONAL === */
-/* El fondo vive ÚNICAMENTE en .filo-hero, nunca en body ni pageArea */
+/* === HERO TRANSPARENTE CON FONDOS DE IMAGEN === */
+/* El hero es transparente para mostrar las imágenes de fondo del body */
 .filo-hero.bg-bandera {
-	background-color: #1a2035;
+	background-color: transparent;
 }
 .filo-hero.bg-edificio {
-	background-color: #1a2035;
+	background-color: transparent;
 }
 .filo-hero.bg-acta {
-	background-color: #1a2035;
+	background-color: transparent;
 }
 
 /* Footer — siempre sólido, sin interferencias */
