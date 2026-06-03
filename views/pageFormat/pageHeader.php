@@ -77,7 +77,19 @@
     <link rel="stylesheet" type="text/css" href="<?php print $this->request->getAssetsUrlPath(); ?>/mirador/css/mirador-combined.css">
 
 </head>
-<body>
+<body class="bg-bandera">
+<script>
+// Rotar fondos de marca de agua cada 8 segundos
+(function() {
+	const backgrounds = ['bg-bandera', 'bg-edificio'];
+	let current = 0;
+	setInterval(function() {
+		document.body.classList.remove(backgrounds[current]);
+		current = (current + 1) % backgrounds.length;
+		document.body.classList.add(backgrounds[current]);
+	}, 8000);
+})();
+</script>
 
 	<!-- ============================================================
 	     ENCABEZADO FILO UBA
