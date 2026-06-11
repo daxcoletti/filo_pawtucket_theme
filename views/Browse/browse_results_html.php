@@ -95,20 +95,20 @@ if (!$vb_ajax) {	// !ajax
 		<H1>	
 			<div id="searchOptions" >
 <?php
-		print "<h4>"._t("Browse")." ".$va_browse_info["displayName"]." <div class='grayText'>(".$qr_res->numHits()." result".(($qr_res->numHits() != 1 ? "s" : "")).")</div></h4>";	
+		print "<h4>"._t("Browse")." ".$va_browse_info["displayName"]." <div class='grayText'>(".$qr_res->numHits()." ".(($qr_res->numHits() == 1) ? _t("result") : _t("results")).")</div></h4>";
 
 ?>
 				<div class='row'>	
 					<div class='col-sm-3 col-md-3 col-lg-3 btn-group'>
-					<a href='#' data-toggle="dropdown"><?php print _t("Sort By"); ?>:<span class='btn'><b class="caret"></b><?php print $va_sort_labels[$vs_current_sort] ?? $vs_current_sort;?></span></a>
+					<a href='#' data-toggle="dropdown"><?php print _t("Sort By"); ?>:<span class='btn'><b class="caret"></b><?php print _t($va_sort_labels[$vs_current_sort] ?? $vs_current_sort);?></span></a>
 					<ul class="dropdown-menu" role="menu">
 	<?php				
 						if(is_array($va_sorts = $this->getVar('sortBy')) && sizeof($va_sorts)) {
 							foreach($va_sorts as $vs_sort => $vs_sort_flds) {
 								if ($vs_current_sort === $vs_sort) {
-									print "<li><a href='#'><em>".($va_sort_labels[$vs_sort] ?? $vs_sort)."</em></a></li>\n";
+									print "<li><a href='#'><em>"._t($va_sort_labels[$vs_sort] ?? $vs_sort)."</em></a></li>\n";
 								} else {
-									print "<li>".caNavLink($this->request, $va_sort_labels[$vs_sort] ?? $vs_sort, '', '*', '*', '*', array('view' => $vs_current_view, 'key' => $vs_browse_key, 'sort' => $vs_sort))."</li>\n";
+									print "<li>".caNavLink($this->request, _t($va_sort_labels[$vs_sort] ?? $vs_sort), '', '*', '*', '*', array('view' => $vs_current_view, 'key' => $vs_browse_key, 'sort' => $vs_sort))."</li>\n";
 								}
 							}
 						}

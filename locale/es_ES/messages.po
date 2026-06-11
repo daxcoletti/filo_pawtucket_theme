@@ -1253,3 +1253,9 @@ msgstr "Relevancia"
 
 msgid "Identifier"
 msgstr "Identificador"
+
+msgid "result"
+msgstr "resultado"
+
+msgid "results"
+msgstr "resultados"
