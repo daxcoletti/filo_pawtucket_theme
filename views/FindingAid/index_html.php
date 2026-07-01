@@ -10,15 +10,6 @@
 	// y expone fondos marcados como no accesibles en Providence.
 	$va_access_values = caGetUserAccessValues($this->request);
 
-	// DEBUG TEMPORAL
-	$o_cfg = Configuration::load();
-	print "<!-- CA_DEBUG access_values=".json_encode($va_access_values)
-		." enforce=".var_export($o_cfg->get('dont_enforce_access_settings'), true)
-		." public=".json_encode($o_cfg->getList('public_access_settings'))
-		." find_count=".ca_collections::find(array('parent_id' => null), array('returnAs' => 'count', 'checkAccess' => $va_access_values))
-		." find_all=".ca_collections::find(array('parent_id' => null), array('returnAs' => 'count'))
-		." -->\n";
-
 	$qr_top_level_collections = ca_collections::find(
 		array('parent_id' => null),
 		array(
@@ -28,7 +19,7 @@
 			'checkAccess' => $va_access_values
 		)
 	);
-	
+
 	if (!$va_open_by_default) {
 		$vs_hierarchy_style = "style='display:none;'";
 	}
@@ -36,7 +27,7 @@
 	<h1><?php print $vs_page_title; ?></h1>
 	<div class='findingIntro'><?php print $vs_intro_text; ?></div>
 	<div id='findingAidCont'>
-<?php	
+<?php
 	if ($qr_top_level_collections) {
 		// Collect all top-level collections into array and sort by orden_presentacion
 		$va_collections = array();
@@ -48,14 +39,14 @@
 			$va_collections[sprintf('%04d', $vn_order).'_'.$vn_id] = $vn_id;
 		}
 		ksort($va_collections);
-		
+
 		foreach($va_collections as $vs_key => $vn_top_level_collection_id) {
 			$va_hierarchy = $t_collection->hierarchyWithTemplate($ps_template, array('collection_id' => $vn_top_level_collection_id, 'checkAccess' => $va_access_values));
 
 			// Get name for checking children (solo hijos accesibles al público)
 			$t_col = new ca_collections($vn_top_level_collection_id);
 			$va_children = $t_col->getHierarchyChildren($vn_top_level_collection_id, array('idsOnly' => true, 'checkAccess' => $va_access_values));
-			
+
 			foreach($va_hierarchy as $vn_i => $va_hierarchy_item) {
 				print "<div class='collHeader' style='margin-left: ".($va_hierarchy_item['level'] * 35)."px'>";
 				if (($va_hierarchy_item['level']) == 0 && sizeof($va_children)) {
@@ -69,13 +60,13 @@
 				print "{$va_hierarchy_item['display']}</div>\n";
 				if ($va_hierarchy_item['level'] == 0) {
 					print "<div class='collBlock".$vn_top_level_collection_id."' ".$vs_hierarchy_style.">";
-?>				
+?>
 					<script>
 						$(function() {
 						  $('.down<?php print $vn_top_level_collection_id;?>').click(function() {
 							  if ($('.collBlock<?php print $vn_top_level_collection_id;?>').css('display') == 'none') {
 							  	 $('.down<?php print $vn_top_level_collection_id;?>').css('-webkit-transform', 'rotate(0deg)');
-							     $('.collBlock<?php print $vn_top_level_collection_id;?>').fadeIn("300"); 
+							     $('.collBlock<?php print $vn_top_level_collection_id;?>').fadeIn("300");
 							  } else {
 							  	$('.down<?php print $vn_top_level_collection_id;?>').css('-webkit-transform', 'rotate(180deg)');
 							    $('.collBlock<?php print $vn_top_level_collection_id;?>').fadeOut("300");
@@ -84,9 +75,9 @@
 						  });
 						})
 					</script>
-<?php	
-				}	
-				$v_i++;			
+<?php
+				}
+				$v_i++;
 			}
 			print "</div>";
 		}
