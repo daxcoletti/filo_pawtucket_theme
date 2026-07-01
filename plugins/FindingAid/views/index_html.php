@@ -4,13 +4,19 @@
 	$vs_page_title = $this->getVar('page_title');
 	$vs_intro_text = $this->getVar('intro_text');
 	$va_open_by_default = $this->getVar('open_by_default');
-	
+
+	// Solo mostrar colecciones accesibles al público (respeta public_access_settings
+	// y el usuario logueado). Sin esto, ca_collections::find() ignora el campo "access"
+	// y expone fondos marcados como no accesibles en Providence.
+	$va_access_values = caGetUserAccessValues($this->request);
+
 	$qr_top_level_collections = ca_collections::find(
 		array('parent_id' => null),
 		array(
 			'returnAs' => 'searchResult',
 			'sort' => 'ca_collection_labels.name',
-			'sort_direction' => 'asc'
+			'sort_direction' => 'asc',
+			'checkAccess' => $va_access_values
 		)
 	);
 	
@@ -35,11 +41,11 @@
 		ksort($va_collections);
 		
 		foreach($va_collections as $vs_key => $vn_top_level_collection_id) {
-			$va_hierarchy = $t_collection->hierarchyWithTemplate($ps_template, array('collection_id' => $vn_top_level_collection_id));
-			
-			// Get name for checking children
+			$va_hierarchy = $t_collection->hierarchyWithTemplate($ps_template, array('collection_id' => $vn_top_level_collection_id, 'checkAccess' => $va_access_values));
+
+			// Get name for checking children (solo hijos accesibles al público)
 			$t_col = new ca_collections($vn_top_level_collection_id);
-			$va_children = $t_col->getHierarchyChildren($vn_top_level_collection_id, array('idsOnly' => true));
+			$va_children = $t_col->getHierarchyChildren($vn_top_level_collection_id, array('idsOnly' => true, 'checkAccess' => $va_access_values));
 			
 			foreach($va_hierarchy as $vn_i => $va_hierarchy_item) {
 				print "<div class='collHeader' style='margin-left: ".($va_hierarchy_item['level'] * 35)."px'>";

@@ -624,10 +624,17 @@ a.readmore-js-toggle { color: #2db5a3; padding-bottom: 15px; }
 	50%       { transform: translateY(6px); }
 }
 
-/* Sección carousel */
+/* Sección carousel — banda blanca full-bleed para que no se vea la imagen de fondo del body */
 .jcarousel-section {
 	padding: 40px 0 60px;
 	border-top: 3px solid #e8edf5;
+	background-color: #ffffff;
+	position: relative;
+	z-index: 1;
+	/* Full-bleed: rompe el container de Bootstrap para cubrir todo el ancho */
+	width: 100vw;
+	margin-left: calc(-50vw + 50%);
+	box-sizing: border-box;
 }
 
 /* Responsive */

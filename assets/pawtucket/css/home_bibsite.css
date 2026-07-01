@@ -129,7 +129,10 @@
 
 .jcarousel-wrapper {
     position: relative;
-    margin: 40px 0 !important;
+    /* Centrado y con ancho tipo container: la seccion .jcarousel-section es
+       full-bleed (banda blanca), pero el carrusel se mantiene contenido */
+    max-width: 1170px;
+    margin: 40px auto !important;
     /* espacio para las flechas a cada lado */
     padding: 0 50px;
     box-sizing: border-box;
