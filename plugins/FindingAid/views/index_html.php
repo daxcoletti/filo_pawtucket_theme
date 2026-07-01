@@ -10,6 +10,15 @@
 	// y expone fondos marcados como no accesibles en Providence.
 	$va_access_values = caGetUserAccessValues($this->request);
 
+	// DEBUG TEMPORAL
+	$o_cfg = Configuration::load();
+	print "<!-- CA_DEBUG access_values=".json_encode($va_access_values)
+		." enforce=".var_export($o_cfg->get('dont_enforce_access_settings'), true)
+		." public=".json_encode($o_cfg->getList('public_access_settings'))
+		." find_count=".ca_collections::find(array('parent_id' => null), array('returnAs' => 'count', 'checkAccess' => $va_access_values))
+		." find_all=".ca_collections::find(array('parent_id' => null), array('returnAs' => 'count'))
+		." -->\n";
+
 	$qr_top_level_collections = ca_collections::find(
 		array('parent_id' => null),
 		array(
