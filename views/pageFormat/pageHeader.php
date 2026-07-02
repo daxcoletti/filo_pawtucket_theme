@@ -77,9 +77,15 @@
     <link rel="stylesheet" type="text/css" href="<?php print $this->request->getAssetsUrlPath(); ?>/mirador/css/mirador-combined.css">
 
 </head>
-<body class="bg-bandera">
+<?php
+	// Los fondos rotativos (marca de agua) solo se muestran en la pantalla de
+	// inicio (Front/Index); en el resto de las páginas dificultan la lectura.
+	$vb_is_home = ($this->request->getController() == 'Front') && ($this->request->getAction() == 'Index');
+?>
+<body class="<?php print $vb_is_home ? 'bg-bandera' : ''; ?>">
+<?php if ($vb_is_home): ?>
 <script>
-// Rotar fondos de marca de agua cada 8 segundos
+// Rotar fondos de marca de agua cada 8 segundos (solo en la pantalla de inicio)
 (function() {
 	const backgrounds = ['bg-bandera', 'bg-edificio'];
 	let current = 0;
@@ -90,6 +96,7 @@
 	}, 8000);
 })();
 </script>
+<?php endif; ?>
 
 	<!-- ============================================================
 	     ENCABEZADO FILO UBA
